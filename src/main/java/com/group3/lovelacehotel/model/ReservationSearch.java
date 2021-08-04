@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class RoomSearch {
+public class ReservationSearch {
 
     private Long id;
 
@@ -22,4 +22,5 @@ public class RoomSearch {
     private Long numberOfChildren;
 
     private Date arrivalDate;
+
 }
