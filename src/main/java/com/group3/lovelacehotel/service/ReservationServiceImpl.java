@@ -25,9 +25,10 @@ public class ReservationServiceImpl implements ReservationService {
     public List<Reservation> search(ReservationSearch reservationSearch) {
         Reservation reservation = new Reservation();
         reservation.setRoomSize(reservationSearch.getRoomSize());
-        reservation.setArrivalDate(reservationSearch.getArrivalDate());
+        reservation.setCheckInDate(reservationSearch.getCheckInDate());
+        reservation.setCheckOutDate(reservationSearch.getCheckOutDate());
         reservation.setNumberOfRooms(reservationSearch.getNumberOfRooms());
-        reservation.setPersons(reservationSearch.getPersons());
+        reservation.setNumberOfAdults(reservationSearch.getNumberOfAdults());
         reservation.setNumberOfChildren(reservationSearch.getNumberOfChildren());
         reservation.setStayNights(reservationSearch.getStayNights());
 
@@ -54,9 +55,10 @@ public class ReservationServiceImpl implements ReservationService {
                 .orElseThrow(() -> new BadRequestException("Invalid reservation id " + id));
 
         existingReservation.setRoomSize(updatedReservation.getRoomSize());
-        existingReservation.setArrivalDate(updatedReservation.getArrivalDate());
+        existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
+        existingReservation.setCheckOutDate(updatedReservation.getCheckOutDate());
         existingReservation.setNumberOfRooms(updatedReservation.getNumberOfRooms());
-        existingReservation.setPersons(updatedReservation.getPersons());
+        existingReservation.setNumberOfAdults(updatedReservation.getNumberOfAdults());
         existingReservation.setNumberOfChildren(updatedReservation.getNumberOfChildren());
         existingReservation.setStayNights(updatedReservation.getStayNights());
 

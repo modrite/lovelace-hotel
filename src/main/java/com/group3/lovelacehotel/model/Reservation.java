@@ -31,7 +31,7 @@ public class Reservation {
     @NotBlank
     @Column(name = "number_of_adults")
     @Min(value = 1)
-    private Long adults;
+    private Long numberOfAdults;
 
     @NotBlank
     @Column(name = "number_of_children")

@@ -17,10 +17,12 @@ public class ReservationSearch {
 
     private Long numberOfRooms;
 
-    private Long persons;
+    private Long numberOfAdults;
 
     private Long numberOfChildren;
 
-    private Date arrivalDate;
+    private Date checkInDate;
+
+    private Date checkOutDate;
 
 }
