@@ -3,6 +3,7 @@ package com.group3.lovelacehotel.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -28,16 +29,22 @@ public class Reservation {
     private Long numberOfRooms;
 
     @NotBlank
-    @Column(name = "number_of_persons")
-    private Long persons;
+    @Column(name = "number_of_adults")
+    @Min(value = 1)
+    private Long adults;
 
     @NotBlank
     @Column(name = "number_of_children")
+    @Min(value = 0)
     private Long numberOfChildren;
 
     @NotBlank
     @Column(name = "reservation_from_date")
-    private Date arrivalDate;
+    private Date checkInDate;
+
+    @NotBlank
+    @Column(name = "reservation_to_date")
+    private Date checkOutDate;
 
 
 }
