@@ -26,15 +26,12 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation reservation = new Reservation();
         reservation.setRoomSize(reservationSearch.getRoomSize());
         reservation.setCheckInDate(reservationSearch.getCheckInDate());
-        reservation.setCheckOutDate(reservationSearch.getCheckOutDate());
-        reservation.setNumberOfRooms(reservationSearch.getNumberOfRooms());
-        reservation.setNumberOfAdults(reservationSearch.getNumberOfAdults());
-        reservation.setNumberOfChildren(reservationSearch.getNumberOfChildren());
+        reservation.setExpectedCheckOutDate(reservationSearch.getExpectedCheckOutDate());
         reservation.setStayNights(reservationSearch.getStayNights());
 
-        Example<Reservation> roomExample = Example.of(reservation, matchingAll().withIgnoreNullValues());
+        Example<Reservation> reservationExample = Example.of(reservation, matchingAll().withIgnoreNullValues());
 
-        return reservationRepository.findAll(roomExample);
+        return reservationRepository.findAll(reservationExample);
 
     }
 
@@ -56,11 +53,13 @@ public class ReservationServiceImpl implements ReservationService {
 
         existingReservation.setRoomSize(updatedReservation.getRoomSize());
         existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
-        existingReservation.setCheckOutDate(updatedReservation.getCheckOutDate());
-        existingReservation.setNumberOfRooms(updatedReservation.getNumberOfRooms());
-        existingReservation.setNumberOfAdults(updatedReservation.getNumberOfAdults());
-        existingReservation.setNumberOfChildren(updatedReservation.getNumberOfChildren());
+        existingReservation.setExpectedCheckOutDate(updatedReservation.getExpectedCheckOutDate());
         existingReservation.setStayNights(updatedReservation.getStayNights());
+        existingReservation.setTotalPrice(updatedReservation.getTotalPrice());
+        existingReservation.setPrice(updatedReservation.getPrice());
+        existingReservation.setCustomer(updatedReservation.getCustomer());
+        existingReservation.setRoom(updatedReservation.getRoom());
+
 
         return reservationRepository.save(existingReservation);
     }

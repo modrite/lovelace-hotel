@@ -208,7 +208,7 @@ body {
                     <div class="form-header">
                         <h1>Make your reservation</h1>
                     </div>
-                    <form th:object="${user}" method="post" th:action="@{/users}">
+                    <form th:object="${reservation}" method="post" th:action="@{/reservations}">
                         <div class="form-group">
                             <select class="form-control" required th:field="*{roomSize}">
                                 <option value="" selected hidden>Room Size</option>

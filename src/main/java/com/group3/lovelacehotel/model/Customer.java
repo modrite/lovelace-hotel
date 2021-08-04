@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy  = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "Please provide your name")
@@ -27,7 +27,7 @@ public class Customer {
     @NotBlank(message = "Please provide your phone number")
     private String phoneNumber;
 
-    @Email(message="please provide a valid email adress")
+    @Email(message="please provide a valid email address")
     @NotBlank(message = "Please provide your email address")
     private String email;
 

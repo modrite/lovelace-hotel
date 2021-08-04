@@ -3,9 +3,8 @@ package com.group3.lovelacehotel.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -13,8 +12,16 @@ import java.util.Date;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    Room room;
 
     @NotBlank
     private Long stayNights;
@@ -22,29 +29,28 @@ public class Reservation {
     @NotBlank
     private String roomSize;
 
-    private Long price;
+    private Double price;
+    private Double totalPrice;
 
     @NotBlank
-    @Column(name = "number_of_rooms")
-    private Long numberOfRooms;
+    private LocalDateTime checkInDate;
 
     @NotBlank
-    @Column(name = "number_of_adults")
-    @Min(value = 1)
-    private Long numberOfAdults;
+    private LocalDateTime expectedCheckOutDate;
 
-    @NotBlank
-    @Column(name = "number_of_children")
-    @Min(value = 0)
-    private Long numberOfChildren;
-
-    @NotBlank
-    @Column(name = "reservation_from_date")
-    private Date checkInDate;
-
-    @NotBlank
-    @Column(name = "reservation_to_date")
-    private Date checkOutDate;
+    //    @NotBlank
+//    @Column(name = "number_of_rooms")
+//    private Long numberOfRooms;
+//
+//    @NotBlank
+//    @Column(name = "number_of_adults")
+//    @Min(value = 1)
+//    private Long numberOfAdults;
+//
+//    @NotBlank
+//    @Column(name = "number_of_children")
+//    @Min(value = 0)
+//    private Long numberOfChildren;
 
 
 }

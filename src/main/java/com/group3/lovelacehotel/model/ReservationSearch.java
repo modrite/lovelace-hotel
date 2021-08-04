@@ -2,7 +2,7 @@ package com.group3.lovelacehotel.model;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 public class ReservationSearch {
@@ -13,7 +13,7 @@ public class ReservationSearch {
 
     private String roomSize;
 
-    private Long price;
+    private Double price;
 
     private Long numberOfRooms;
 
@@ -21,8 +21,8 @@ public class ReservationSearch {
 
     private Long numberOfChildren;
 
-    private Date checkInDate;
+    private LocalDateTime checkInDate;
 
-    private Date checkOutDate;
+    private LocalDateTime expectedCheckOutDate;
 
 }
