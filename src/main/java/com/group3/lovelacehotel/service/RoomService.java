@@ -12,5 +12,7 @@ public interface RoomService {
 
     Room updateRoom(Long id, Room updatedRoom);
 
+    Room register(Room room);
+
     void delete(Long id);
 }

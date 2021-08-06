@@ -28,7 +28,7 @@ public class ReservationController {
 
 
     @GetMapping(value = "/reservation-add")
-    public String ReservationRegistration(Model map, Reservation reservation) {
+    public String reservationRegistration(Model map, Reservation reservation) {
         map.addAttribute("pageName", "Add New Reservation!");
         return "reservation";
     }
