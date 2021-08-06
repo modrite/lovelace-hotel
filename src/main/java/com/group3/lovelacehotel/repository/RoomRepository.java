@@ -13,7 +13,6 @@ public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificat
 
     Optional<Room> findByRoomSize(String roomSize);
 
-    Optional<Room> findByTypeAndRoomSize(String type, String roomSize);
 
     List<Room> findAllByRoomSize(String roomSize);
 
