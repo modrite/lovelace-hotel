@@ -21,23 +21,40 @@ public class ReservationController {
     private final ReservationService reservationService;
 
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("reservations", reservationService.getAll());
+    public String index() {
+       // model.addAttribute("reservations", reservationService.getAll());
         return "index";
     }
 
 
-    @GetMapping(value = "/reservation-add")
+    @GetMapping(value = "/reservation")
     public String reservationRegistration(Model map, Reservation reservation) {
         map.addAttribute("pageName", "Add New Reservation!");
         return "reservation";
+    }
+
+    @PostMapping
+    public String saveNewReservation(@Valid Reservation reservation, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "reservation";
+        }
+       reservationService.saveReservation(reservation);
+
+        return "allReservations";
+    }
+
+
+    @GetMapping(value = "/reservations")
+    public String allReservations(Model map, Reservation reservation) {
+        map.addAttribute("pageName", "Add New Reservation!");
+        return "allReservations";
     }
 
 
     @GetMapping("/delete/{id}")
     public String deleteById(@PathVariable("id") Long id, Model model) {
         reservationService.delete(id);
-        return index(model);
+        return"redirect:/allReservations";
     }
 
     @GetMapping("/edit/{id}")
@@ -50,15 +67,15 @@ public class ReservationController {
         return "reservation-edit";
     }
 
-
-    @PostMapping("/update/{id}")
-    public String updateReservation(@PathVariable("id") Long id, @Valid Reservation reservation, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "reservation-edit";
-        }
-
-        reservationService.updateReservation(id, reservation);
-
-        return index(model);
-    }
+//
+//    @PostMapping("/update/{id}")
+//    public String updateReservation(@PathVariable("id") Long id, @Valid Reservation reservation, BindingResult result, Model model) {
+//        if (result.hasErrors()) {
+//            return "reservation-edit";
+//        }
+//
+//        reservationService.updateReservation(id, reservation);
+//
+//        return index(model);
+//    }
 }
