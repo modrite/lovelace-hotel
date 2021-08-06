@@ -10,7 +10,6 @@
 <div th:switch="${reservations}" class="container my-5">
     <div class="row">
         <div class="col-md-6">
-            <p class="my-5"><a href="/reservations/reservation" class="btn btn-success"><i class="fas fa-user-plus ml-2"></i></a></p>
             <h2 th:case="null">No reservations yet!</h2>
             <div th:case="*">
                 <h2 class="my-5">Reservations</h2>

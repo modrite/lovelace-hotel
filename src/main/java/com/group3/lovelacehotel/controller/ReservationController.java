@@ -22,17 +22,18 @@ public class ReservationController {
 
     @GetMapping
     public String index() {
-       // model.addAttribute("reservations", reservationService.getAll());
         return "index";
     }
 
+//show reservation form
+    @GetMapping("/new-reservation")
+    public String newReservation() {
 
-    @GetMapping(value = "/reservation")
-    public String reservationRegistration(Model map, Reservation reservation) {
-        map.addAttribute("pageName", "Add New Reservation!");
         return "reservation";
     }
 
+
+//save reservation
     @PostMapping
     public String saveNewReservation(@Valid Reservation reservation, BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -40,13 +41,15 @@ public class ReservationController {
         }
        reservationService.saveReservation(reservation);
 
-        return "allReservations";
+        return "reservation";
     }
 
 
-    @GetMapping(value = "/reservations")
+
+//see all reservations
+    @GetMapping(value = "/all-reservations")
     public String allReservations(Model map, Reservation reservation) {
-        map.addAttribute("pageName", "Add New Reservation!");
+        map.addAttribute("pageName", "All Reservations!");
         return "allReservations";
     }
 
