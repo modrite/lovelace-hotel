@@ -1,7 +1,6 @@
 package com.group3.lovelacehotel.service;
 
 import com.group3.lovelacehotel.model.Admin;
-import com.group3.lovelacehotel.model.Customer;
 import com.group3.lovelacehotel.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
