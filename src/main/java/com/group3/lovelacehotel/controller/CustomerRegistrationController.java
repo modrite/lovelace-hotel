@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/registration")
 public class CustomerRegistrationController {
-    private CustomerService customerService;
+    private final CustomerService customerService;
 
     public CustomerRegistrationController(CustomerService customerService) {
-        super();
         this.customerService = customerService;
     }
 

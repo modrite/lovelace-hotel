@@ -21,33 +21,27 @@ public class ReservationController {
     private final ReservationService reservationService;
 
     @GetMapping
-    public String index() {
-        return "index";
+    public String landingReservationPage() {
+        return "redirect:reservations/allreservations";
     }
 
-//show reservation form
     @GetMapping("/new-reservation")
     public String newReservation() {
-
         return "reservation";
     }
 
-
-//save reservation
     @PostMapping
     public String saveNewReservation(@Valid Reservation reservation, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "reservation";
         }
-       reservationService.saveReservation(reservation);
 
+        reservationService.saveReservation(reservation);
         return "reservation";
     }
 
 
-
-//see all reservations
-    @GetMapping(value = "/all-reservations")
+    @GetMapping(value = "/allreservations")
     public String allReservations(Model map, Reservation reservation) {
         map.addAttribute("pageName", "All Reservations!");
         return "allReservations";
@@ -57,7 +51,7 @@ public class ReservationController {
     @GetMapping("/delete/{id}")
     public String deleteById(@PathVariable("id") Long id, Model model) {
         reservationService.delete(id);
-        return"redirect:/allReservations";
+        return "redirect:reservations/allreservations";
     }
 
     @GetMapping("/edit/{id}")
