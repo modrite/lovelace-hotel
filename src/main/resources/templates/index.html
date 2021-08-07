@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sogo Hotel by Colorlib.com</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -28,7 +28,7 @@
     <header class="site-header js-site-header">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Lovelace Hotel</a></div>
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a th:href="@{/}">Lovelace Hotel</a></div>
           <div class="col-6 col-lg-8">
 
 
@@ -45,12 +45,13 @@
                   <div class="row full-height align-items-center">
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
-                        <li class="active"><a href="index">Home</a></li>
-                        <li><a href="rooms.html">Rooms</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="events.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a th:href="@{/reservations}">Reservation</a></li>
+                        <li class="active"><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/rooms}">Rooms</a></li>
+                        <li><a th:href="@{/about}">About</a></li>
+                        <li><a th:href="@{/events}">Events</a></li>
+                        <li><a th:href="@{/contact}">Contact</a></li>
+                        <li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
+                        <li><a th:href="@{/login}">Log in</a></li>
                       </ul>
                     </div>
                   </div>
@@ -148,9 +149,9 @@
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
             <figure class="img-absolute">
-              <img th:src="@{~/images/food-1.jpg}" alt="Image" class="img-fluid">
+              <img th:src="@{~/images/food-1.jpg}" alt="Image" class="img-fluid" src="">
             </figure>
-            <img th:src="@{~/images/img_1.jpg}" alt="Image" class="img-fluid rounded">
+            <img th:src="@{~/images/img_1.jpg}" alt="Image" class="img-fluid rounded" src="">
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
@@ -174,7 +175,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
            <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -186,7 +187,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
            <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -198,7 +199,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
            <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>
@@ -225,25 +226,25 @@
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               <div class="slider-item">
-               <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-               <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-               <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-               <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-               <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-               <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-               <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}" alt="Image placeholder" class="img-fluid"></a>
+               <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
             </div>
             <!-- END slider -->
@@ -412,7 +413,7 @@
             
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img th:src="@{~/images/person_1.jpg}" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img th:src="@{~/images/person_1.jpg}" alt="Image placeholder" class="rounded-circle mx-auto" src="">
               </div>
               <blockquote>
 
@@ -423,7 +424,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img th:src="@{~/images/person_2.jpg}" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img th:src="@{~/images/person_2.jpg}" alt="Image placeholder" class="rounded-circle mx-auto" src="">
               </div>
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
@@ -433,7 +434,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img th:src="@{~/images/person_3.jpg}" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img th:src="@{~/images/person_3.jpg}" alt="Image placeholder" class="rounded-circle mx-auto" src="">
               </div>
               <blockquote>
 
@@ -445,7 +446,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img th:src="@{~/images/person_1.jpg}" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img th:src="@{~/images/person_1.jpg}" alt="Image placeholder" class="rounded-circle mx-auto" src="">
               </div>
               <blockquote>
 
@@ -456,7 +457,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img th:src="@{~/images/person_2.jpg}" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img th:src="@{~/images/person_2.jpg}" alt="Image placeholder" class="rounded-circle mx-auto" src="">
               </div>
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
@@ -466,7 +467,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img th:src="@{~/images/person_3.jpg}" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img th:src="@{~/images/person_3.jpg}" alt="Image placeholder" class="rounded-circle mx-auto" src="">
               </div>
               <blockquote>
 
@@ -495,7 +496,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
 
             <div class="media media-custom d-block mb-4 h-100">
-             <a href="#" class="mb-4 d-block"><img th:src="@{~/images/img_1.jpg}" alt="Image placeholder" class="img-fluid"></a>
+             <a href="#" class="mb-4 d-block"><img th:src="@{~/images/img_1.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">Travel Hacks to Make Your Flight More Comfortable</a></h2>
@@ -506,7 +507,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
             <div class="media media-custom d-block mb-4 h-100">
-             <a href="#" class="mb-4 d-block"><img th:src="@{~/images/img_2.jpg}" alt="Image placeholder" class="img-fluid"></a>
+             <a href="#" class="mb-4 d-block"><img th:src="@{~/images/img_2.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">5 Job Types That Aallow You To Earn As You Travel The World</a></h2>
@@ -516,7 +517,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
             <div class="media media-custom d-block mb-4 h-100">
-             <a href="#" class="mb-4 d-block"><img th:src="@{~/images/img_3.jpg}" alt="Image placeholder" class="img-fluid"></a>
+             <a href="#" class="mb-4 d-block"><img th:src="@{~/images/img_3.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">30 Great Ideas On Gifts For Travelers</a></h2>

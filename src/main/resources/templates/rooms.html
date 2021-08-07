@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,43 +25,44 @@
     <link rel="stylesheet" th:href="@{~/css/style.css}">
   </head>
   <body>
-    
-    <header class="site-header js-site-header">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Sogo Hotel</a></div>
-          <div class="col-6 col-lg-8">
+
+  <header class="site-header js-site-header">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a th:href="@{/}">Lovelace Hotel</a></div>
+        <div class="col-6 col-lg-8">
 
 
-            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <!-- END menu-toggle -->
+          <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- END menu-toggle -->
 
-            <div class="site-navbar js-site-navbar">
-              <nav role="navigation">
-                <div class="container">
-                  <div class="row full-height align-items-center">
-                    <div class="col-md-6 mx-auto">
-                      <ul class="list-unstyled menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="rooms.html">Rooms</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                      </ul>
-                    </div>
+          <div class="site-navbar js-site-navbar">
+            <nav role="navigation">
+              <div class="container">
+                <div class="row full-height align-items-center">
+                  <div class="col-md-6 mx-auto">
+                    <ul class="list-unstyled menu">
+                      <li class="active"><a th:href="@{/}">Home</a></li>
+                      <li><a th:href="@{/rooms}">Rooms</a></li>
+                      <li><a th:href="@{/about}">About</a></li>
+                      <li><a th:href="@{/events}">Events</a></li>
+                      <li><a th:href="@{/contact}">Contact</a></li>
+                      <li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
+                      <li><a th:href="@{/login}">Log in</a></li>
+                    </ul>
                   </div>
                 </div>
-              </nav>
-            </div>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
     <!-- END head -->
 
     <section class="site-hero inner-page overlay" style="background-image: url(static/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
@@ -70,7 +71,7 @@
           <div class="col-md-10 text-center" data-aos="fade">
             <h1 class="heading mb-3">Rooms</h1>
             <ul class="custom-breadcrumbs mb-4">
-              <li><a href="index.html">Home</a></li>
+              <li><a th:href="@{/}">Home</a></li>
               <li>&bullet;</li>
               <li>Rooms</li>
             </ul>
@@ -156,7 +157,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -168,7 +169,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -180,7 +181,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>
@@ -192,7 +193,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -204,7 +205,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -216,7 +217,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3">
+                <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>

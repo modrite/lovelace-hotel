@@ -27,6 +27,18 @@ h1, h2, h3, h4, h5 {
   color: #000;
   font-family: "Playfair Display", times, serif; }
 
+.reg, .control-label, .already {
+    color: #fff;
+    font-family: "Roboto", arial, sans-serif;
+}
+
+.emailAd, .pass, .loginBtn, .nam, .surnam, .phon{
+    font-size: 1.4rem;
+}
+.emailAddress, .passw, .customer, .loginBtn{
+    color: #fff;
+}
+
 .font-family-serif {
   font-family: "Playfair Display", times, serif; }
 

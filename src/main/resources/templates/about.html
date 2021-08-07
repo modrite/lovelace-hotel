@@ -1,67 +1,67 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sogo Hotel by Colorlib.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" th:href="@{~/css/bootstrap.min .css}">
-    <link rel="stylesheet" th:href="@{~/css/animate .css}">
-    <link rel="stylesheet" th:href="@{~/css/owl.carousel.min .css}">
-    <link rel="stylesheet" th:href="@{~/css/aos .css}">
-    <link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker .css}">
-    <link rel="stylesheet" th:href="@{~/css/jquery.timepicker .css}">
-    <link rel="stylesheet" th:href="@{~/css/fancybox.min .css}">
-    
-    <link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min .css}">
-    <link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min .css}">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
-    <!-- Theme Style -->
-    <link rel="stylesheet" th:href="@{~/css/style .css}">
-  </head>
+  <link rel="stylesheet"  th:href="@{~/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{~/css/animate.css}">
+  <link rel="stylesheet" th:href="@{~/css/owl.carousel.min.css}">
+  <link rel="stylesheet" th:href="@{~/css/aos.css}">
+  <link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker.css}">
+  <link rel="stylesheet" th:href="@{~/css/jquery.timepicker.css}">
+  <link rel="stylesheet" th:href="@{~/css/fancybox.min.css}">
+
+  <link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min.css}">
+  <link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min.css}">
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" th:href="@{~/css/style.css}">
+</head>
   <body>
-    
-    <header class="site-header js-site-header">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Sogo Hotel</a></div>
-          <div class="col-6 col-lg-8">
+
+  <header class="site-header js-site-header">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a th:href="@{/}">Lovelace Hotel</a></div>
+        <div class="col-6 col-lg-8">
 
 
-            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <!-- END menu-toggle -->
+          <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- END menu-toggle -->
 
-            <div class="site-navbar js-site-navbar">
-              <nav role="navigation">
-                <div class="container">
-                  <div class="row full-height align-items-center">
-                    <div class="col-md-6 mx-auto">
-                      <ul class="list-unstyled menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="rooms.html">Rooms</a></li>
-                        <li class="active"><a href="about.html">About</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                      </ul>
-                    </div>
+          <div class="site-navbar js-site-navbar">
+            <nav role="navigation">
+              <div class="container">
+                <div class="row full-height align-items-center">
+                  <div class="col-md-6 mx-auto">
+                    <ul class="list-unstyled menu">
+                      <li class="active"><a th:href="@{/}">Home</a></li>
+                      <li><a th:href="@{/rooms}">Rooms</a></li>
+                      <li><a th:href="@{/about}">About</a></li>
+                      <li><a th:href="@{/events}">Events</a></li>
+                      <li><a th:href="@{/contact}">Contact</a></li>
+                      <li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
+                      <li><a th:href="@{/login}">Log in</a></li>
+                    </ul>
                   </div>
                 </div>
-              </nav>
-            </div>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
     <!-- END head -->
 
     <section class="site-hero inner-page overlay" style="background-image: url(static/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
@@ -70,7 +70,7 @@
           <div class="col-md-10 text-center" data-aos="fade">
             <h1 class="heading mb-3">About Us</h1>
             <ul class="custom-breadcrumbs mb-4">
-              <li><a href="index.html">Home</a></li>
+              <li><a th:href="@{/}">Home</a></li>
               <li>&bullet;</li>
               <li>About</li>
             </ul>
@@ -130,7 +130,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img th:src="@{~/images/person_3.jpg}" alt="">
+                    <img th:src="@{~/images/person_3.jpg}" alt="" src="">
                   </div>
                   <div class="name align-self-center">Will Peters <span class="position">President</span></div>
                 </div>
@@ -180,7 +180,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img th:src="@{~/images/person_2.jpg}" alt="">
+                    <img th:src="@{~/images/person_2.jpg}" alt="" src="">
                   </div>
                   <div class="name align-self-center">Jeffrey Neddery <span class="position">Marketing Director</span></div>
                 </div>
@@ -204,25 +204,25 @@
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               <div class="slider-item">
-                <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-                <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-                <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-                <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-                <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-                <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
               <div class="slider-item">
-                <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}" alt="Image placeholder" class="img-fluid" src=""></a>
               </div>
             </div>
             <!-- END slider -->

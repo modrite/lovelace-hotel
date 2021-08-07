@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Registration and Login App</title>
@@ -8,74 +8,129 @@
 		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 		  crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+
+	<link rel="stylesheet"  th:href="@{~/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{~/css/animate.css}">
+	<link rel="stylesheet" th:href="@{~/css/owl.carousel.min.css}">
+	<link rel="stylesheet" th:href="@{~/css/aos.css}">
+	<link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker.css}">
+	<link rel="stylesheet" th:href="@{~/css/jquery.timepicker.css}">
+	<link rel="stylesheet" th:href="@{~/css/fancybox.min.css}">
+
+	<link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min.css}">
+	<link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min.css}">
+
+	<!-- Theme Style -->
+	<link rel="stylesheet" th:href="@{~/css/style.css}">
 
 </head>
 <body>
 
-<!-- create navigation bar ( header) -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#" th:href="@{/}">Registration and
-				Login</a>
-		</div>
-	</div>
-</nav>
+<header class="site-header js-site-header">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-6 col-lg-4 site-logo" data-aos="fade"><a th:href="@{/}">Lovelace Hotel</a></div>
+			<div class="col-6 col-lg-8">
 
-<br>
-<br>
-<div class = "container">
-	<div class = "row">
-		<div class = "col-md-6 col-md-offset-3">
 
-			<h1> Customer Login Page </h1>
-			<form th:action="@{/login}" method="post">
-
-				<!-- error message -->
-				<div th:if="${param.error}">
-					<div class="alert alert-danger">Invalid username or
-						password.</div>
+				<div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+					<span></span>
+					<span></span>
+					<span></span>
 				</div>
+				<!-- END menu-toggle -->
 
-				<!-- logout message -->
-				<div th:if="${param.logout}">
-					<div class="alert alert-info">You have been logged out.</div>
-				</div>
-
-				<div class = "form-group">
-					<label for ="username"> Email address </label> :
-					<input type="text" class = "form-control" id ="username" name = "username"
-						   placeholder="Please enter your email address" autofocus="autofocus">
-				</div>
-
-				<div class="form-group">
-					<label for="password">Password</label>: <input type="password"
-																   id="password" name="password" class="form-control"
-																   placeholder="Please enter password" />
-				</div>
-
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-6 col-sm-offset-3">
-							<input type="submit" name="login-submit" id="login-submit"
-								   class="form-control btn btn-primary" value="Log In" />
+				<div class="site-navbar js-site-navbar">
+					<nav role="navigation">
+						<div class="container">
+							<div class="row full-height align-items-center">
+								<div class="col-md-6 mx-auto">
+									<ul class="list-unstyled menu">
+										<li class="active"><a th:href="@{/}">Home</a></li>
+										<li><a th:href="@{/rooms}">Rooms</a></li>
+										<li><a th:href="@{/about}">About</a></li>
+										<li><a th:href="@{/events}">Events</a></li>
+										<li><a th:href="@{/contact}">Contact</a></li>
+										<li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
+										<li><a th:href="@{/login}">Log in</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
+					</nav>
 				</div>
-			</form>
-			<div class="form-group">
-						<span>New customer? <a href="/" th:href="@{/registration}">Register
-								here</a></span>
 			</div>
 		</div>
 	</div>
-</div>
+</header>
+<!-- END head -->
+<section class="site-hero overlay" th:style="'background-image:url('+ @{/images/hero_4.jpg} +');'"  data-stellar-background-ratio="0.5">
+	<div class = "container">
+		<div class = "row  mt-5">
+			<div class = "col-md-6 col-md-offset-3">
+
+				<form th:action="@{/login}" method="post">
+
+					<!-- error message -->
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Invalid username or
+							password.</div>
+					</div>
+
+					<!-- logout message -->
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">You have been logged out.</div>
+					</div>
+
+					<div class = "form-group emailAddress">
+						<label for ="username"> Email address </label> :
+						<input type="text" id ="username" name = "username" class = "form-control emailAd"
+							   placeholder="Please enter your email address" autofocus="autofocus" />
+					</div>
+
+					<div class="form-group passw">
+						<label for="password">Password</label>:
+						<input type="password" id="password" name="password" class="form-control pass"
+							   placeholder="Please enter password" />
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+								<input type="submit" name="login-submit" id="login-submit"
+									   class="form-control btn btn-primary loginBtn" value="Log In" />
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="form-group">
+						<span class="customer">New customer? <a href="/" th:href="@{/registration}">Register
+								here</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END section -->
+
+<script th:src="@{~/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{~/js/jquery-migrate-3.0.1.min.js}"></script>
+<script th:src="@{~/js/popper.min.js}"></script>
+<script th:src="@{~/js/bootstrap.min.js}"></script>
+<script th:src="@{~/js/owl.carousel.min.js}"></script>
+<script th:src="@{~/js/jquery.stellar.min.js}"></script>
+<script th:src="@{~/js/jquery.fancybox.min.js}"></script>
+
+
+<script th:src="@{~/js/aos.js}"></script>
+
+<script th:src="@{~/js/bootstrap-datepicker.js}"></script>
+<script th:src="@{~/js/jquery.timepicker.min.js}"></script>
+
+
+
+<script th:src="@{~/js/main.js}"></script>
+
 </body>
 </html>
