@@ -10,19 +10,19 @@
     <meta name="author" content="" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/animate.css">
-    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../static/css/aos.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../static/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="../static/css/fancybox.min.css">
+    <link rel="stylesheet" th:href="@{~/css/bootstrap.min .css}">
+    <link rel="stylesheet" th:href="@{~/css/animate .css}">
+    <link rel="stylesheet" th:href="@{~/css/owl.carousel.min .css}">
+    <link rel="stylesheet" th:href="@{~/css/aos .css}">
+    <link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker .css}">
+    <link rel="stylesheet" th:href="@{~/css/jquery.timepicker .css}">
+    <link rel="stylesheet" th:href="@{~/css/fancybox.min .css}">
     
-    <link rel="stylesheet" href="../static/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="../static/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min .css}">
+    <link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min .css}">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{~/css/style .css}">
   </head>
   <body>
     
@@ -91,9 +91,9 @@
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
             <figure class="img-absolute">
-              <img src="../static/images/food-1.jpg" alt="Free Website Template by Templateux" class="img-fluid">
+              <img th:src="@{~/images/food-1.jpg}" alt="Free Website Template by Templateux" class="img-fluid">
             </figure>
-            <img src="../static/images/img_1.jpg" alt="Image" class="img-fluid rounded">
+            <img th:src="@{~/images/img_1.jpg}" alt="Image" class="img-fluid rounded">
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
@@ -130,7 +130,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="../static/images/person_3.jpg" alt="">
+                    <img th:src="@{~/images/person_3.jpg}" alt="">
                   </div>
                   <div class="name align-self-center">Will Peters <span class="position">President</span></div>
                 </div>
@@ -142,7 +142,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="block-2"> <!-- .hover -->
             <div class="flipper">
-              <div class="front" style="background-image: url(static/images/person_1.jpg);">
+              <div class="front" th:style="'background-image:url('+ @{/images/person_1.jpg} +');'">
                 <div class="box">
                   <h2>Jane Williams</h2>
                   <p>Business Manager</p>
@@ -155,7 +155,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="../static/images/person_1.jpg" alt="">
+                    <img th:src="@{~/images/person_1.jpg}" alt="">
                   </div>
                   <div class="name align-self-center">Jane Williams <span class="position">Business Manager</span></div>
                 </div>
@@ -167,7 +167,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="block-2">
             <div class="flipper">
-              <div class="front" style="background-image: url(static/images/person_2.jpg);">
+              <div class="front" th:style="'background-image:url('+ @{/images/person_2.jpg} +');'">
                 <div class="box">
                   <h2>Jeffrey Neddery</h2>
                   <p>Marketing Director</p>
@@ -180,7 +180,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="../static/images/person_2.jpg" alt="">
+                    <img th:src="@{~/images/person_2.jpg}" alt="">
                   </div>
                   <div class="name align-self-center">Jeffrey Neddery <span class="position">Marketing Director</span></div>
                 </div>
@@ -204,25 +204,25 @@
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               <div class="slider-item">
-                <a href="../static/images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="../static/images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="../static/images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="../static/images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="../static/images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="../static/images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="../static/images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="../static/images/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images" data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}" alt="Image placeholder" class="img-fluid"></a>
               </div>
             </div>
             <!-- END slider -->
@@ -338,22 +338,22 @@
       </div>
     </footer>
     
-    <script src="../static/js/jquery-3.3.1.min.js"></script>
-    <script src="../static/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/owl.carousel.min.js"></script>
-    <script src="../static/js/jquery.stellar.min.js"></script>
-    <script src="../static/js/jquery.fancybox.min.js"></script>
+    <script th:src="@{~/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{~/js/jquery-migrate-3.0.1.min.js}"></script>
+    <script th:src="@{~/js/popper.min.js}"></script>
+    <script th:src="@{~/js/bootstrap.min.js}"></script>
+    <script th:src="@{~/js/owl.carousel.min.js}"></script>
+    <script th:src="@{~/js/jquery.stellar.min.js}"></script>
+    <script th:src="@{~/js/jquery.fancybox.min.js}"></script>
     
     
-    <script src="../static/js/aos.js"></script>
+    <script th:src="@{~/js/aos.js}"></script>
     
-    <script src="../static/js/bootstrap-datepicker.js"></script>
-    <script src="../static/js/jquery.timepicker.min.js"></script>
+    <script th:src="@{~/js/bootstrap-datepicker.js}"></script>
+    <script th:src="@{~/js/jquery.timepicker.min.js}"></script>
 
     
 
-    <script src="../static/js/main.js"></script>
+    <script th:src="@{~/js/main.js}"></script>
   </body>
 </html>
