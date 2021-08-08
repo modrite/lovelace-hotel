@@ -16,7 +16,7 @@ import java.util.Collection;
 @Data
 @Entity
 @Table(name = "customers", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class Customer {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,7 +49,7 @@ public class Customer {
     private Collection<Role> roles;
 
 
-    public Customer(String name, String surname, String phoneNumber, String email, String password, Collection<Role> roles) {
+    public User(String name, String surname, String phoneNumber, String email, String password, Collection<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;

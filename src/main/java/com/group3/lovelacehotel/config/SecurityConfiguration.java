@@ -1,7 +1,7 @@
 package com.group3.lovelacehotel.config;
 
 import com.group3.lovelacehotel.service.AdminService;
-import com.group3.lovelacehotel.service.CustomerService;
+import com.group3.lovelacehotel.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,14 +16,14 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final CustomerService customerService;
+    private final UserService userService;
 
     private final AdminService adminService;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public SecurityConfiguration(CustomerService customerService, AdminService adminService, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.customerService = customerService;
+    public SecurityConfiguration(UserService userService, AdminService adminService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userService = userService;
         this.adminService = adminService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(customerService);
+        auth.setUserDetailsService(userService);
         auth.setUserDetailsService(adminService);
         auth.setPasswordEncoder(bCryptPasswordEncoder);
         return auth;

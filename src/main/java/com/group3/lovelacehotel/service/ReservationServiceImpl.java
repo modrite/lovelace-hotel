@@ -62,7 +62,7 @@ public class ReservationServiceImpl implements ReservationService {
         existingReservation.setStayNights(updatedReservation.getStayNights());
         existingReservation.setTotalPrice(updatedReservation.getTotalPrice());
         existingReservation.setPrice(updatedReservation.getPrice());
-        existingReservation.setCustomer(updatedReservation.getCustomer());
+        existingReservation.setUser(updatedReservation.getUser());
         existingReservation.setRoom(updatedReservation.getRoom());
 
 

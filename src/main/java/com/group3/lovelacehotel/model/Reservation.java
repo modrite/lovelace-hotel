@@ -21,7 +21,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    Customer customer;
+    User user;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
