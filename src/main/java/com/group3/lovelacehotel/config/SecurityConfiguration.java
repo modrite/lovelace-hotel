@@ -60,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/images/**",
                 "/").permitAll()
                 .antMatchers( "/reservation").hasAnyAuthority("CUSTOMER", "ADMIN")
-                .antMatchers("/add-room**", "/edit-room**", "/allReservations**").hasAnyAuthority( "ADMIN")
+                .antMatchers("/add-room**", "/edit-room**", "/allReservations**").hasAnyRole( "ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")

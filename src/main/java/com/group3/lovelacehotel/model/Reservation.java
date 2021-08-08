@@ -31,9 +31,10 @@ public class Reservation {
     private Long stayNights;
 
     @NotBlank
-    private String roomSize;
+    private String type;
 
     private Double price;
+
     private Double totalPrice;
 
     @NotBlank

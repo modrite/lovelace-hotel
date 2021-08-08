@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="container">
+<h1 th:text="${pageName}"></h1>
 
+<div class="col-md-3"></div>
+<div class="col-md-4">
+    <form th:object="${room}" method="post" th:action="@{/rooms/update/{id}(id=${room.id})}">
+        <div class="mb-3">
+            <label for="exampleInputTitle" class="form-label">Type of the room</label>
+            <input type="text" class="form-control" required th:field="*{type}" id="exampleInputTitle"
+                   aria-describedby="TitleHelp">
+            <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputAuthor1" class="form-label">>Price per night</label>
+            <input type="text" class="form-control" required th:field="*{price}" id="exampleInputAuthor1"
+                   aria-describedby="authorHelp">
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputLanguage1" class="form-label">How many adults can stay in this room?</label>
+            <input type="text" th:field="*{numberOfAdults}" required class="form-control" id="exampleInputLanguage1">
+            <span th:if="${#fields.hasErrors('numberOfAdults')}" th:errors="*{numberOfAdults}" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputLanguage1" class="form-label">How many children can stay in this room?</label>
+            <input type="text" th:field="*{numberOfChildren}" required class="form-control" id="exampleInputLanguage2">
+            <span th:if="${#fields.hasErrors('numberOfChildren')}" th:errors="*{numberOfChildren}" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 </body>
 </html>

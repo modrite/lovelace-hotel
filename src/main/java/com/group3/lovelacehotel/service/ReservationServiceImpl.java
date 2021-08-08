@@ -24,7 +24,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     public List<Reservation> search(ReservationSearch reservationSearch) {
         Reservation reservation = new Reservation();
-        reservation.setRoomSize(reservationSearch.getRoomSize());
+        reservation.setType(reservationSearch.getType());
         reservation.setCheckInDate(reservationSearch.getCheckInDate());
         reservation.setExpectedCheckOutDate(reservationSearch.getExpectedCheckOutDate());
         reservation.setStayNights(reservationSearch.getStayNights());
@@ -56,7 +56,7 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation existingReservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Invalid reservation id " + id));
 
-        existingReservation.setRoomSize(updatedReservation.getRoomSize());
+        existingReservation.setType(updatedReservation.getType());
         existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
         existingReservation.setExpectedCheckOutDate(updatedReservation.getExpectedCheckOutDate());
         existingReservation.setStayNights(updatedReservation.getStayNights());

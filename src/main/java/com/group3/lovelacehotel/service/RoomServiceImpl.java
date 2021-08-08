@@ -23,7 +23,7 @@ public class RoomServiceImpl implements RoomService {
 
     public List<Room> search(RoomSearch roomSearch) {
         Room room = new Room();
-        room.setRoomSize(roomSearch.getRoomSize());
+        room.setType(roomSearch.getType());
         room.setPrice(roomSearch.getPrice());
         room.setIfBooked(roomSearch.getIsNotOccupied());
         room.setNumberOfAdults(roomSearch.getNumberOfAdults());
@@ -51,7 +51,7 @@ public class RoomServiceImpl implements RoomService {
         Room existingRoom = roomRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Invalid room id " + id));
 
-        existingRoom.setRoomSize(updatedRoom.getRoomSize());
+        existingRoom.setType(updatedRoom.getType());
         existingRoom.setPrice(updatedRoom.getPrice());
         existingRoom.setIfBooked(updatedRoom.getIfBooked());
         existingRoom.setNumberOfAdults(updatedRoom.getNumberOfAdults());

@@ -9,7 +9,7 @@ public class RoomSearch {
 
     private Long id;
 
-    private String roomSize;
+    private String type;
 
     private Double price;
 

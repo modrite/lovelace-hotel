@@ -11,7 +11,7 @@ public class ReservationSearch {
 
     private Long stayNights;
 
-    private String roomSize;
+    private String type;
 
     private Double price;
 
