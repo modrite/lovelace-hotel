@@ -31,4 +31,9 @@ public class MainController {
         return "events";
     }
 
+    @GetMapping("/admin-login")
+    public String adminLogin() {
+        return "admin-login";
+    }
+
 }
