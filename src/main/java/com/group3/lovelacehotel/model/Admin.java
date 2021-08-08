@@ -1,6 +1,5 @@
 package com.group3.lovelacehotel.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +14,9 @@ import java.util.Collection;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "customers", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class Customer {
+@Table(name = "admins", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+
+public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,16 +40,16 @@ public class Customer {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "customers_roles",
+            name = "admins_roles",
             joinColumns = @JoinColumn(
-                    name = "customer_id", referencedColumnName = "id"),
+                    name = "admin_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
 
     private Collection<Role> roles;
 
 
-    public Customer(String name, String surname, String phoneNumber, String email, String password, Collection<Role> roles) {
+    public Admin(String name, String surname, String phoneNumber, String email, String password, Collection<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
@@ -59,4 +59,3 @@ public class Customer {
     }
 
 }
-

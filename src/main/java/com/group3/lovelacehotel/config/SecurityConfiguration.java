@@ -1,5 +1,7 @@
 package com.group3.lovelacehotel.config;
 
+import com.group3.lovelacehotel.service.AdminService;
+import com.group3.lovelacehotel.service.CustomerService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -10,18 +12,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.group3.lovelacehotel.service.CustomerService;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final CustomerService customerService;
 
+    private final AdminService adminService;
+
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public SecurityConfiguration(CustomerService customerService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public SecurityConfiguration(CustomerService customerService, AdminService adminService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.customerService = customerService;
+        this.adminService = adminService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -29,6 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(customerService);
+        auth.setUserDetailsService(adminService);
         auth.setPasswordEncoder(bCryptPasswordEncoder);
         return auth;
     }
@@ -41,20 +45,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                        "/registration",
-                        "/index",
-                        "/about",
-                        "/contact",
-                        "/js/",
-                        "/fonts/",
-                        "/css/",
-                        "/scss/",
-                        "/index/",
-                        "/images/").permitAll()
-//                .anyRequest().authenticated()
+                "/registration**",
+                "/admin-registration**",
+                "/index**",
+                "/rooms**",
+                "/about**",
+                "/admin-login**",
+                "/contact**",
+                "/events**",
+                "/js/**",
+                "/fonts/**",
+                "/css/**",
+                "/scss/**",
+                "/images/**",
+                "/").permitAll()
+                .antMatchers( "/reservation").hasAnyAuthority("CUSTOMER", "ADMIN")
+                .antMatchers("/add-room**", "/edit-room**", "/allReservations**").hasAnyAuthority( "ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/admin-login")
                 .permitAll()
                 .and()
                 .logout()
@@ -64,9 +77,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
 
-
     }
-
 
 }
 
