@@ -4,6 +4,7 @@ package com.group3.lovelacehotel.controller;
 import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,10 +18,12 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/rooms")
+
+
 public class RoomController {
 
     private final RoomService roomService;
-
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public String index(Model model) {
         model.addAttribute("rooms", roomService.getAll());

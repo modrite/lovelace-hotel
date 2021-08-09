@@ -1,10 +1,11 @@
 package com.group3.lovelacehotel.service;
 
-import com.group3.lovelacehotel.model.User;
-import com.group3.lovelacehotel.model.UserRegistrationDto;
-import com.group3.lovelacehotel.model.Role;
+import com.group3.lovelacehotel.model.*;
+import com.group3.lovelacehotel.repository.AdminRepository;
 import com.group3.lovelacehotel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,16 +18,18 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService,AdminService {
 
     @Autowired
     private UserRepository userRepository;
+
 
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
     public UserServiceImpl(UserRepository userRepository) {
+
         this.userRepository = userRepository;
     }
 
@@ -43,12 +46,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User save(AdminRegistrationDto adminRegistrationDto) {
+        User user = new User(
+                adminRegistrationDto.getName(),
+                adminRegistrationDto.getSurname(),
+                adminRegistrationDto.getPhoneNumber(),
+                adminRegistrationDto.getEmail(),
+                passwordEncoder.encode(adminRegistrationDto.getPassword()),
+                Arrays.asList(new Role("ROLE_ADMIN")));
+        return userRepository.save(user);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userRepository.findByEmail(username);
-        if(user == null) {
-            throw new UsernameNotFoundException("Invalid email address or password.");
-        }
+
+
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
                 mapRolesToAuthorities(user.getRoles()));
     }
