@@ -5,6 +5,8 @@ import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,15 +16,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/rooms")
-
-
 public class RoomController {
 
     private final RoomService roomService;
+
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public String index(Model model) {
@@ -30,9 +32,9 @@ public class RoomController {
         return "rooms";
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/add-room")
-
-    public String addRoom(Model map, Room room) {
+    public String addRoom(Model map, Room room, @AuthenticationPrincipal UserDetails userDetails) {
 
         map.addAttribute("pageName", "Add new room");
 

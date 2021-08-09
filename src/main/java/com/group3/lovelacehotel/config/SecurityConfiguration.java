@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,6 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
@@ -34,7 +36,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider authenticationProviderUser() {
         DaoAuthenticationProvider authUser = new DaoAuthenticationProvider();
         authUser.setUserDetailsService(userService);
-//        auth.setUserDetailsService(adminService);
         authUser.setPasswordEncoder(bCryptPasswordEncoder);
         return authUser;
     }
@@ -60,7 +61,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/registration**",
                         "/admin-registration**",
                         "/index**",
-                        "/rooms**",
                         "/about**",
                         "/admin-login**",
                         "/contact**",
@@ -69,17 +69,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/fonts/**",
                         "/css/**",
                         "/scss/**",
-                        "/images/**",
-                        "/").permitAll()
-                .antMatchers("/reservation").hasAnyAuthority("CUSTOMER", "ADMIN")
+                        "/images/**").permitAll()
+                .antMatchers("/reservation").hasAnyRole("CUSTOMER", "ADMIN")
                 .antMatchers("/add-room**", "/edit-room**", "/allReservations**").hasAnyRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/admin-login")
                 .permitAll()
                 .and()
                 .logout()
@@ -88,8 +83,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
-
-
     }
 
 }
