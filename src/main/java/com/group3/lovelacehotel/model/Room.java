@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "rooms")
 public class Room {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "occupied")
     private Boolean ifBooked;

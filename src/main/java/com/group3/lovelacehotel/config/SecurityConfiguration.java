@@ -4,6 +4,7 @@ import com.group3.lovelacehotel.service.AdminService;
 import com.group3.lovelacehotel.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,19 +29,30 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userService);
-        auth.setUserDetailsService(adminService);
-        auth.setPasswordEncoder(bCryptPasswordEncoder);
-        return auth;
+    public DaoAuthenticationProvider authenticationProviderUser() {
+        DaoAuthenticationProvider authUser = new DaoAuthenticationProvider();
+        authUser.setUserDetailsService(userService);
+//        auth.setUserDetailsService(adminService);
+        authUser.setPasswordEncoder(bCryptPasswordEncoder);
+        return authUser;
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProviderAdmin() {
+        DaoAuthenticationProvider authAdmin = new DaoAuthenticationProvider();
+        authAdmin.setUserDetailsService(adminService);
+        authAdmin.setPasswordEncoder(bCryptPasswordEncoder);
+        return authAdmin;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
+        auth.authenticationProvider(authenticationProviderUser());
+        auth.authenticationProvider(authenticationProviderAdmin());
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

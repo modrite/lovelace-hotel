@@ -19,7 +19,7 @@ public class UserRegistrationController {
     }
 
     @ModelAttribute("user")
-    public UserRegistrationDto customerRegistrationDto() {
+    public UserRegistrationDto userRegistrationDto() {
         return new UserRegistrationDto();
     }
 
@@ -29,7 +29,7 @@ public class UserRegistrationController {
     }
 
     @PostMapping
-    public String registerCustomerAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
+    public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
         userService.save(registrationDto);
         return "redirect:/registration?success";
     }
