@@ -5,7 +5,6 @@ import com.group3.lovelacehotel.model.Room;
 import java.util.Collection;
 
 
-
 public interface RoomService {
 
     Collection<Room> getAll();
@@ -17,4 +16,7 @@ public interface RoomService {
     Room register(Room room);
 
     void delete(Long id);
+
+
+
 }

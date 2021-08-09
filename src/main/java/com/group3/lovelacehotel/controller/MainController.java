@@ -20,6 +20,10 @@ public class MainController {
     public String about() {
         return "about";
     }
+    @GetMapping("/roomsHotel")
+    public String roomsHotel() {
+        return "roomsHotel";
+    }
 
     @GetMapping("/contact")
     public String contact() {

@@ -22,4 +22,6 @@ public class RoomSearch {
     private LocalDateTime checkOutDate;
 
     private Boolean isNotOccupied;
+
+
 }

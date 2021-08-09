@@ -45,22 +45,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                "/registration**",
-                "/admin-registration**",
-                "/index**",
-                "/rooms**",
-                "/about**",
-                "/admin-login**",
-                "/contact**",
-                "/events**",
-                "/js/**",
-                "/fonts/**",
-                "/css/**",
-                "/scss/**",
-                "/images/**",
-                "/").permitAll()
-                .antMatchers( "/reservation").hasAnyAuthority("CUSTOMER", "ADMIN")
-                .antMatchers("/add-room**", "/edit-room**", "/allReservations**").hasAnyRole( "ADMIN")
+                        "/registration**",
+                        "/admin-registration**",
+                        "/index**",
+                        "/rooms**",
+                        "/about**",
+                        "/admin-login**",
+                        "/contact**",
+                        "/events**",
+                        "/js/**",
+                        "/fonts/**",
+                        "/css/**",
+                        "/scss/**",
+                        "/images/**",
+                        "/").permitAll()
+                .antMatchers("/reservation").hasAnyAuthority("CUSTOMER", "ADMIN")
+                .antMatchers("/add-room**", "/edit-room**", "/allReservations**").hasAnyRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")

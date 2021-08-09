@@ -13,10 +13,14 @@ import javax.persistence.*;
 @Table(name = "rooms")
 public class Room {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "occupied")
     private Boolean ifBooked;
+
+//    @OneToOne
+//    @JoinColumn(name = "customer_id")
+//    private User user;
 
     private String type;
 

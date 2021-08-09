@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<header class="site-header js-site-header">
+<header class="site-header js-site-header mb-5">
 	<div class="container-fluid">
 		<div class="row align-items-center">
 			<div class="col-6 col-lg-4 site-logo" data-aos="fade"><a th:href="@{/}">Lovelace Hotel</a></div>
@@ -48,7 +48,7 @@
 								<div class="col-md-6 mx-auto">
 									<ul class="list-unstyled menu">
 										<li class="active"><a th:href="@{/}">Home</a></li>
-										<li><a th:href="@{/rooms}">Rooms</a></li>
+										<li><a th:href="@{/roomsHotel}">Rooms</a></li>
 										<li><a th:href="@{/about}">About</a></li>
 										<li><a th:href="@{/events}">Events</a></li>
 										<li><a th:href="@{/contact}">Contact</a></li>
@@ -63,7 +63,9 @@
 			</div>
 		</div>
 	</div>
+
 </header>
+
 <!-- END head -->
 
 <section class="site-hero overlay" th:style="'background-image:url('+ @{/images/hero_4.jpg} +');'"  data-stellar-background-ratio="0.5">
@@ -121,6 +123,7 @@
 		</div>
 	</div>
 </section>
+
 <!-- END section -->
 
 <script th:src="@{~/js/jquery-3.3.1.min.js}"></script>
