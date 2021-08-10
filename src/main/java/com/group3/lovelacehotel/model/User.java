@@ -15,7 +15,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "customers", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
@@ -40,9 +40,9 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "customers_roles",
+            name = "users_roles",
             joinColumns = @JoinColumn(
-                    name = "customer_id", referencedColumnName = "id"),
+                    name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
 

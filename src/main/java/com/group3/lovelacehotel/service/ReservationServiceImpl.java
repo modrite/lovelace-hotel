@@ -26,7 +26,7 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation reservation = new Reservation();
         reservation.setType(reservationSearch.getType());
         reservation.setCheckInDate(reservationSearch.getCheckInDate());
-        reservation.setExpectedCheckOutDate(reservationSearch.getExpectedCheckOutDate());
+        reservation.setCheckOutDate(reservationSearch.getExpectedCheckOutDate());
         reservation.setStayNights(reservationSearch.getStayNights());
 
         Example<Reservation> reservationExample = Example.of(reservation, matchingAll().withIgnoreNullValues());
@@ -58,7 +58,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         existingReservation.setType(updatedReservation.getType());
         existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
-        existingReservation.setExpectedCheckOutDate(updatedReservation.getExpectedCheckOutDate());
+        existingReservation.setCheckOutDate(updatedReservation.getCheckOutDate());
         existingReservation.setStayNights(updatedReservation.getStayNights());
         existingReservation.setTotalPrice(updatedReservation.getTotalPrice());
         existingReservation.setPrice(updatedReservation.getPrice());

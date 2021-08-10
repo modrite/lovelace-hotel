@@ -41,7 +41,7 @@ public class Reservation {
     private LocalDateTime checkInDate;
 
     @NotBlank
-    private LocalDateTime expectedCheckOutDate;
+    private LocalDateTime checkOutDate;
 
     //    @NotBlank
 //    @Column(name = "number_of_rooms")
