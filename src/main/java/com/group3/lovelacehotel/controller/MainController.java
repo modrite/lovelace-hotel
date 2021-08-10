@@ -35,6 +35,11 @@ public class MainController {
         return "events";
     }
 
+    @GetMapping("/reservation")
+    public String reservation() {
+        return "reservation";
+    }
+
     @GetMapping("/admin-login")
     public String adminLogin() {
         return "admin-login";
