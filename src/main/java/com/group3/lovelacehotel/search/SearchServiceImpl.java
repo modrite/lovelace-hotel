@@ -14,11 +14,11 @@ import java.util.Optional;
 public class SearchServiceImpl implements SearchService {
     private final SearchRepository searchRepository;
 
-    public Optional<Room> searchAvailableRoom(LocalDateTime checkInDate,
+    public Optional<Room> searchAvailableRoom(LocalDateTime expectedCheckInDate,
                                               LocalDateTime expectedCheckOutDate,
                                               Long numberOfAdults,
                                               Long numberOfChildren) {
-        return searchRepository.searchAvailableRoom(checkInDate, expectedCheckOutDate, numberOfAdults, numberOfChildren);
+        return searchRepository.searchAvailableRoom(expectedCheckInDate, expectedCheckOutDate, numberOfAdults, numberOfChildren);
     }
 
 }

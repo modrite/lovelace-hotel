@@ -17,13 +17,14 @@ public interface SearchRepository extends JpaRepository<Room, Long>, JpaSpecific
     @Query(value = "SELECT rooms.id * FROM rooms " +
             "LEFT JOIN reservations " +
             "ON ( reservations.check_in_date <= expected_check_in_date " +
-            "AND reservations.expected_check_out_date >= expected_check_out_date)" +
+            "AND reservations.check_out_date >= expected_check_out_date)" +
             "WHERE reservations.id IS NULL AND rooms.number_of_adults >= planned_number_of_adults " +
-            "AND rooms.number_of_children >= planned_number_of_children")
+            "AND rooms.number_of_children >= planned_number_of_children", nativeQuery = true)
 
-    Optional<Room> searchAvailableRoom(@Param("expected_check_in_date") LocalDateTime checkInDate,
+
+    Optional<Room> searchAvailableRoom(@Param("expected_check_in_date") LocalDateTime expectedCheckInDate,
                                        @Param("expected_check_out_date") LocalDateTime expectedCheckOutDate,
-                                       @Param("planned_number_of_adults") Long numberOfAdults,
-                                       @Param("planned_number_of_children") Long numberOfChildren);
+                                       @Param("planned_number_of_adults") Long plannedNumberOfAdults,
+                                       @Param("planned_number_of_children") Long plannedNumberOfChildren);
 
 }
