@@ -61,6 +61,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Room register(Room room) {
+        room.setIfBooked(false);
         return roomRepository.save(room);
     }
 

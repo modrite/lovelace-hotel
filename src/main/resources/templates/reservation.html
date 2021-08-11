@@ -87,8 +87,8 @@
                                         <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
                                         <div class="field-icon-wrap">
                                             <div class="icon"><span class="icon-calendar"></span></div>
-                                            <input type="text" id="checkin_date" class="form-control"
-                                                   th:field="*{checkInDate}">
+                                            <input type="text" id="checkin_date" name="checkInDate" class="form-control"
+                                                   th:field="*{checkInDate}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
@@ -96,7 +96,8 @@
                                         <div class="field-icon-wrap">
                                             <div class="icon"><span class="icon-calendar"></span></div>
                                             <input type="text" id="checkout_date" class="form-control"
-                                                   th:field="*{checkOutDate}">
+                                                   name="checkOutDate"
+                                                   th:field="*{checkOutDate}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
@@ -105,12 +106,12 @@
                                                 <label for="adults" class="font-weight-bold text-black">Adults</label>
                                                 <div class="field-icon-wrap">
                                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                    <select name="" id="adults" class="form-control"
-                                                            th:field="*{numberOfAdults}">
-                                                        <option value="">1</option>
-                                                        <option value="">2</option>
-                                                        <option value="">3</option>
-                                                        <option value="">4+</option>
+                                                    <select name="numberOfAdults" id="adults" class="form-control"
+                                                            th:field="*{numberOfAdults}" required>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -119,12 +120,12 @@
                                                        class="font-weight-bold text-black">Children</label>
                                                 <div class="field-icon-wrap">
                                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                    <select name="" id="children" class="form-control"
-                                                            th:field="*{numberOfChildren}">
-                                                        <option value="">0</option>
-                                                        <option value="">1</option>
-                                                        <option value="">2</option>
-                                                        <option value="">3</option>
+                                                    <select name="numberOfChildren" id="children" class="form-control"
+                                                            th:field="*{numberOfChildren}" required>
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -149,8 +150,6 @@
     <table class="table table-striped table-responsive-md">
         <thead>
         <tr>
-            <th>From</th>
-            <th>To</th>
             <th>Adults</th>
             <th>Children</th>
 
@@ -158,8 +157,6 @@
         </thead>
         <tbody>
         <tr th:each="room : ${rooms}">
-            <td th:text="${room.checkInDate}"></td>
-            <td th:text="${room.checkOutDate}"></td>
             <td th:text="${room.numberOfAdults}"></td>
             <td th:text="${room.numberOfChildren}"></td>
         </tr>

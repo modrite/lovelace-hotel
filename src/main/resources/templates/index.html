@@ -50,7 +50,7 @@
                         <li><a th:href="@{/about}">About</a></li>
                         <li><a th:href="@{/events}">Events</a></li>
                         <li><a th:href="@{/contact}">Contact</a></li>
-                        <li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
+                        <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                         <li><a th:href="@{/login}">Log in</a></li>
                       </ul>
                     </div>
@@ -88,7 +88,7 @@
         <div class="row check-availabilty" id="next">
           <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
 
-            <form th:action="@{/reservation}">
+            <form th:action="@{/rooms/reservation}">
               <div class="row">
                 <div class="col-md-6 col-lg-3 align-self-end">
                   <button type="submit" class="btn btn-primary btn-block text-white">Book now</button>
