@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.security.Principal;
 
 @RequiredArgsConstructor
 @Controller
@@ -83,24 +82,24 @@ public class RoomController {
     }
 
     //search room section
-    @GetMapping("/search")
+    @GetMapping("/reservation")
     public String searchRoom(Model model) {
         model.addAttribute("pageName", "Search room");
         /** /rooms/search - GET **/
-        return "search-room"; //change this
+        return "/reservation"; //change this
     }
 
-    @PostMapping("/search")
+    @PostMapping("/reservation")
     public String searchRoomWithParams(@Valid RoomSearch roomSearch, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "edit-room";
+            return "reservation";
         }
 
         /** /rooms/search POST **/
         var availableRooms = roomService.availableRooms(roomSearch);
         model.addAttribute("rooms", availableRooms);
 
-        return "available-rooms"; // change this
+        return "reservation"; // change this
     }
 
 }
