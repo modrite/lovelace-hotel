@@ -2,14 +2,17 @@ package com.group3.lovelacehotel.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "rooms")
 public class Room {
     @Id
@@ -29,5 +32,4 @@ public class Room {
     private Long numberOfAdults;
 
     private Long numberOfChildren;
-
 }

@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface SearchRepository extends JpaRepository<Room, Long>, JpaSpecificationExecutor<Room> {
 
 
-    @Query(value = "SELECT rooms.id * FROM rooms " +
+    @Query(value = "SELECT * FROM rooms " +
             "LEFT JOIN reservations " +
             "ON ( reservations.check_in_date <= expected_check_in_date " +
             "AND reservations.check_out_date >= expected_check_out_date)" +

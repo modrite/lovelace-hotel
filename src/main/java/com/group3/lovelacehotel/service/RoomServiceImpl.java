@@ -3,14 +3,17 @@ package com.group3.lovelacehotel.service;
 import com.group3.lovelacehotel.exception.BadRequestException;
 import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.model.RoomSearch;
+import com.group3.lovelacehotel.repository.ReservationRepository;
 import com.group3.lovelacehotel.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.springframework.data.domain.ExampleMatcher.matchingAll;
 
@@ -20,19 +23,14 @@ import static org.springframework.data.domain.ExampleMatcher.matchingAll;
 public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
+    private final ReservationRepository reservationRepository;
 
-    public List<Room> search(RoomSearch roomSearch) {
-        Room room = new Room();
-        room.setType(roomSearch.getType());
-        room.setPrice(roomSearch.getPrice());
-        room.setIfBooked(roomSearch.getIsNotOccupied());
-        room.setNumberOfAdults(roomSearch.getNumberOfAdults());
-        room.setNumberOfChildren(roomSearch.getNumberOfChildren());
-
-        Example<Room> roomExample = Example.of(room, matchingAll().withIgnoreNullValues());
-
-        return roomRepository.findAll(roomExample);
-
+    @Override
+    public Set<Room> availableRooms(RoomSearch roomSearch) {
+        return availableRooms(
+                roomSearch.getCheckInDate(),
+                roomSearch.getNumberOfAdults(),
+                roomSearch.getNumberOfChildren());
     }
 
     @Override
@@ -62,9 +60,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Room register(Room room) {
-
-       return roomRepository.save(room);
-
+        return roomRepository.save(room);
     }
 
     @Override
@@ -78,6 +74,24 @@ public class RoomServiceImpl implements RoomService {
 
     public Optional<Room> findById(Long id) {
         return roomRepository.findById(id);
+    }
+
+    private Set<Room> availableRooms(LocalDateTime date) {
+        var rooms = roomRepository.findByIfBookedFalse();
+        var checkedOutRooms = reservationRepository.availableRooms(date);
+        rooms.addAll(checkedOutRooms);
+
+        return rooms;
+    }
+
+    private Set<Room> availableRooms(LocalDateTime date,
+                                     Long numberOfAdults,
+                                     Long numberOfChildren) {
+        var rooms = roomRepository.getAvailableRoomsByParams(numberOfAdults, numberOfChildren);
+        var checkedOutRooms = reservationRepository.availableRoomsByParam(date, numberOfAdults, numberOfChildren);
+        rooms.addAll(checkedOutRooms);
+
+        return rooms;
     }
 
 }

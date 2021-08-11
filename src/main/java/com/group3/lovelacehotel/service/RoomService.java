@@ -1,8 +1,11 @@
 package com.group3.lovelacehotel.service;
 
 import com.group3.lovelacehotel.model.Room;
+import com.group3.lovelacehotel.model.RoomSearch;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Set;
 
 
 public interface RoomService {
@@ -17,6 +20,6 @@ public interface RoomService {
 
     void delete(Long id);
 
-
+    Set<Room> availableRooms(RoomSearch roomSearch);
 
 }

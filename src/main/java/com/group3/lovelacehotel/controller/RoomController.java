@@ -2,6 +2,7 @@ package com.group3.lovelacehotel.controller;
 
 
 import com.group3.lovelacehotel.model.Room;
+import com.group3.lovelacehotel.model.RoomSearch;
 import com.group3.lovelacehotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -79,6 +80,27 @@ public class RoomController {
         roomService.updateRoom(id, room);
 
         return index(model);
+    }
+
+    //search room section
+    @GetMapping("/search")
+    public String searchRoom(Model model) {
+        model.addAttribute("pageName", "Search room");
+        /** /rooms/search - GET **/
+        return "search-room"; //change this
+    }
+
+    @PostMapping("/search")
+    public String searchRoomWithParams(@Valid RoomSearch roomSearch, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "edit-room";
+        }
+
+        /** /rooms/search POST **/
+        var availableRooms = roomService.availableRooms(roomSearch);
+        model.addAttribute("rooms", availableRooms);
+
+        return "available-rooms"; // change this
     }
 
 }
