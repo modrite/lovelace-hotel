@@ -23,15 +23,8 @@ public class UserServiceImpl implements UserService,AdminService {
     @Autowired
     private UserRepository userRepository;
 
-
-
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
-    public UserServiceImpl(UserRepository userRepository) {
-
-        this.userRepository = userRepository;
-    }
 
     @Override
     public User save(UserRegistrationDto registrationDto) {
