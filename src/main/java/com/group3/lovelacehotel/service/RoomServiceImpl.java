@@ -10,6 +10,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -84,11 +85,12 @@ public class RoomServiceImpl implements RoomService {
         return rooms;
     }
 
-    private Set<Room> availableRooms(LocalDateTime date,
+    private Set<Room> availableRooms(LocalDate date,
                                      Long numberOfAdults,
                                      Long numberOfChildren) {
+        var dateTime = date.atStartOfDay();
         var rooms = roomRepository.getAvailableRoomsByParams(numberOfAdults, numberOfChildren);
-        var checkedOutRooms = reservationRepository.availableRoomsByParam(date, numberOfAdults, numberOfChildren);
+        var checkedOutRooms = reservationRepository.availableRoomsByParam(dateTime, numberOfAdults, numberOfChildren);
         rooms.addAll(checkedOutRooms);
 
         return rooms;

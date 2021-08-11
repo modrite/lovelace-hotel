@@ -3,6 +3,7 @@ package com.group3.lovelacehotel.model;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -12,7 +13,7 @@ public class RoomSearch {
     @NotNull
     private Long numberOfChildren;
     @NotNull
-    private LocalDateTime checkInDate;
+    private LocalDate checkInDate;
     @NotNull
-    private LocalDateTime checkOutDate;
+    private LocalDate checkOutDate;
 }

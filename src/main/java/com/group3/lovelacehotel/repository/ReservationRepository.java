@@ -17,7 +17,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     Set<Room> availableRooms(@Param("date") LocalDateTime date);
 
     @Query("Select r.room from Reservation  r where " +
-            "r.checkOutDate <:date " +
+            "r.checkOutDate <=:date " +
             "and r.room.numberOfAdults=:numberOfadults " +
             "and r.room.numberOfChildren=:numberOfChildren")
     Set<Room> availableRoomsByParam(@Param("date") LocalDateTime date,
