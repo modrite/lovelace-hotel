@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -29,15 +28,15 @@ public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificat
     Set<Room> getAvailableRoomsByParams(@Param("numberOfAdults") Long numberOfAdults,
                                         @Param("numberOfChildren") Long numberOfChildren);
 
-    @Query(value = "SELECT * FROM rooms as r" +
-            "LEFT JOIN reservations as reserv" +
-            "ON reserv.room_id = r.id " +
-            "WHERE( (r.occupied = false) OR " +
-            " ( reserv.checkOutDate >= :expectedCheckInDate)" +
-            " AND" +
-            " r.number_of_adults >= :planned_number_of_adults" +
-            " AND r.number_of_children >= :planned_number_of_children)", nativeQuery = true)
-    Set<Room> searchAvailableRoom(@Param("expected_check_in_date") LocalDateTime expectedCheckInDate,
-                                  @Param("planned_number_of_adults") Long plannedNumberOfAdults,
-                                  @Param("planned_number_of_children") Long plannedNumberOfChildren);
+//    @Query(value = "SELECT * FROM rooms as r" +
+//            "LEFT JOIN reservations as reserv" +
+//            "ON reserv.room_id = r.id " +
+//            "WHERE( (r.occupied = false) OR " +
+//            " ( reserv.checkOutDate >= :expectedCheckInDate)" +
+//            " AND" +
+//            " r.number_of_adults >= :planned_number_of_adults" +
+//            " AND r.number_of_children >= :planned_number_of_children)", nativeQuery = true)
+//    Set<Room> searchAvailableRoom(@Param("expected_check_in_date") LocalDateTime expectedCheckInDate,
+//                                  @Param("planned_number_of_adults") Long plannedNumberOfAdults,
+//                                  @Param("planned_number_of_children") Long plannedNumberOfChildren);
 }

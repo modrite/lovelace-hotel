@@ -83,10 +83,11 @@ public class RoomController {
 
     //search room section
     @GetMapping("/reservation")
-    public String searchRoom(Model model) {
+    public String searchRoom(Model model, RoomSearch roomSearch) {
         model.addAttribute("pageName", "Search room");
+        model.addAttribute("roomSearch", roomSearch);
         /** /rooms/search - GET **/
-        return "/reservation"; //change this
+        return "reservation";
     }
 
     @PostMapping("/reservation")
@@ -99,7 +100,7 @@ public class RoomController {
         var availableRooms = roomService.availableRooms(roomSearch);
         model.addAttribute("rooms", availableRooms);
 
-        return "reservation"; // change this
+        return "reservation";
     }
 
 }
