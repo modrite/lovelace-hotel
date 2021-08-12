@@ -48,11 +48,11 @@
 								<div class="col-md-6 mx-auto">
 									<ul class="list-unstyled menu">
 										<li class="active"><a th:href="@{/}">Home</a></li>
-										<li><a th:href="@{/roomsHotel}">Rooms</a></li>
 										<li><a th:href="@{/about}">About</a></li>
+										<li><a th:href="@{/roomsHotel}">Rooms</a></li>
 										<li><a th:href="@{/events}">Events</a></li>
 										<li><a th:href="@{/contact}">Contact</a></li>
-										<li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
+										<li><a th:href="@{/rooms/reservation}">Book Now</a></li>
 										<li><a th:href="@{/login}">Log in</a></li>
 									</ul>
 								</div>
@@ -119,6 +119,10 @@
 				<div class="form-group">
 						<span class="user">New user? <a href="/" th:href="@{/registration}">Register
 								here</a></span>
+
+				</div>
+				<div>
+				<span > <a href="/" th:href="@{/admin-login}">Admin</a></span>
 				</div>
 			</div>
 		</div>
