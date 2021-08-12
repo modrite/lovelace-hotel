@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Registration and Login App</title>
@@ -54,6 +54,7 @@
 										<li><a th:href="@{/contact}">Contact</a></li>
 										<li><a th:href="@{/reservations/new-reservation}">Book Now</a></li>
 										<li><a th:href="@{/login}">Log in</a></li>
+										<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 									</ul>
 								</div>
 							</div>

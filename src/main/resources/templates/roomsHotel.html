@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,6 +54,7 @@
                                         <li><a th:href="@{/contact}">Contact</a></li>
                                         <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                                         <li><a th:href="@{/login}">Log in</a></li>
+                                        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
                                     </ul>
                                 </div>
                             </div>
