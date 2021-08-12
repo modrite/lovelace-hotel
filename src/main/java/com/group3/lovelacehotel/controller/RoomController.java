@@ -100,6 +100,7 @@ public class RoomController {
         var availableRooms = roomService.availableRooms(roomSearch);
         model.addAttribute("rooms", availableRooms);
 
+        System.out.println("available rooms size = " + availableRooms.size());
         return "reservation";
     }
 

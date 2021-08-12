@@ -94,6 +94,8 @@ public class RoomServiceImpl implements RoomService {
         var checkedOutRooms = reservationRepository.availableRoomsByParam(dateTime, numberOfAdults, numberOfChildren);
         rooms.addAll(checkedOutRooms);
 
+        System.out.println("rooms size = " + rooms.size());
+
         return rooms;
     }
 
