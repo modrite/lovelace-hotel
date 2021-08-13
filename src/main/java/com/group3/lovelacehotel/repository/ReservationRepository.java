@@ -13,13 +13,13 @@ import java.util.Set;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
     Optional<Reservation> findById(Long id);
 
-    @Query("Select r.room from Reservation  r where r.checkOutDate <:date")
+    @Query("Select r.room from Reservation  r where r.checkOutDate >:date")
     Set<Room> availableRooms(@Param("date") LocalDateTime date);
 
     @Query("Select r.room from Reservation  r where " +
-            "r.checkOutDate <=:date " +
-            "and r.room.numberOfAdults <=:numberOfAdults " +
-            "and r.room.numberOfChildren <=:numberOfChildren ")
+            "r.checkOutDate >=:date " +
+            "and r.numberOfAdults =:numberOfAdults " +
+            "and r.numberOfChildren =:numberOfChildren ")
     Set<Room> availableRoomsByParam(@Param("date") LocalDateTime date,
                              @Param("numberOfAdults") Long numberOfAdults,
                              @Param("numberOfChildren") Long numberOfChildren);
