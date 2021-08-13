@@ -45,7 +45,6 @@
                         <div class="container">
                             <div class="row full-height align-items-center">
                                 <div class="col-md-6 mx-auto">
-<!--                                    <div th:if=hasRole('ADMIN')>-->
                                         <ul class="list-unstyled menu">
                                             <li class="active"><a th:href="@{/}">Home</a></li>
                                             <li><a th:href="@{/about}">About</a></li>
@@ -54,25 +53,11 @@
                                             <li><a th:href="@{/contact}">Contact</a></li>
                                             <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                                             <li><a th:href="@{/login}">Log in</a></li>
-                                            <li><a th:href="@{/rooms}">For Admin</a></li>
+<!--                                            <li><a th:href="@{/rooms}" sec:authorize="hasRole('ADMIN')">For Admin</a></li>-->
+                                            <li><a th:href="@{/rooms}" type ="hidden" th:object="${user}">For Admin</a></li>
                                             <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a>
                                             </li>
                                         </ul>
-<!--                                    </div>-->
-<!--                                    <div th:if=hasRole('CUSTOMER')>-->
-<!--                                        <ul class="list-unstyled menu">-->
-<!--                                            <li class="active"><a th:href="@{/}">Home</a></li>-->
-<!--                                            <li><a th:href="@{/about}">About</a></li>-->
-<!--                                            <li><a th:href="@{/roomsHotel}">Rooms</a></li>-->
-<!--                                            <li><a th:href="@{/events}">Events</a></li>-->
-<!--                                            <li><a th:href="@{/contact}">Contact</a></li>-->
-<!--                                            <li><a th:href="@{/rooms/reservation}">Book Now</a></li>-->
-<!--                                            <li><a th:href="@{/login}">Log in</a></li>-->
-<!--                                            <li><a th:href="@{/rooms}">For Admin</a></li>-->
-<!--                                            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -659,6 +644,7 @@
 <script th:src="@{~/js/owl.carousel.min.js}"></script>
 <script th:src="@{~/js/jquery.stellar.min.js}"></script>
 <script th:src="@{~/js/jquery.fancybox.min.js}"></script>
+
 
 
 <script th:src="@{~/js/aos.js}"></script>
