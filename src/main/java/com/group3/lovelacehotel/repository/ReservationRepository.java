@@ -18,8 +18,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     @Query("Select r.room from Reservation  r where " +
             "r.checkOutDate >=:date " +
-            "and r.numberOfAdults =:numberOfAdults " +
-            "and r.numberOfChildren =:numberOfChildren ")
+            "and r.room.numberOfAdults =:numberOfAdults " +
+            "and r.room.numberOfChildren =:numberOfChildren ")
     Set<Room> availableRoomsByParam(@Param("date") LocalDateTime date,
                              @Param("numberOfAdults") Long numberOfAdults,
                              @Param("numberOfChildren") Long numberOfChildren);
