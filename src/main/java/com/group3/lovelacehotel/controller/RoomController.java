@@ -3,6 +3,8 @@ package com.group3.lovelacehotel.controller;
 
 import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.model.RoomSearch;
+import com.group3.lovelacehotel.model.User;
+import com.group3.lovelacehotel.repository.UserRepository;
 import com.group3.lovelacehotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,12 +13,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.time.LocalDate;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Function;
 
 @RequiredArgsConstructor
 @Controller
@@ -24,6 +28,7 @@ import javax.validation.Valid;
 public class RoomController {
 
     private final RoomService roomService;
+    private final UserRepository userRepository;
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
@@ -99,9 +104,27 @@ public class RoomController {
         /** /rooms/search POST **/
         var availableRooms = roomService.availableRooms(roomSearch);
         model.addAttribute("rooms", availableRooms);
+        model.addAttribute("search",roomSearch);
 
         System.out.println("available rooms size = " + availableRooms.size());
         return "reservation";
+    }
+
+    public String bookRoomWithDetails(@RequestParam("startDate") LocalDate startDate,
+                                      @RequestParam("endDate") LocalDate endDate,
+                                      Principal principal,
+                                      Model model){
+        User user = Optional.ofNullable(principal)
+                .map(Principal::getName)
+                .map(userRepository::findByEmail)
+                .orElse(null);
+
+        model.addAttribute("currentUser",user);
+        model.addAttribute("isUserLoggedIn", Objects.nonNull(user));
+        model.addAttribute("checkInDate",startDate);
+        model.addAttribute("checkOutDate",endDate);
+
+        return "form";
     }
 
 }
