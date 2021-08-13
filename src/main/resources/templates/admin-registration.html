@@ -87,7 +87,7 @@
 
                 <h1 class="reg">Registration</h1>
 
-                <form th:action="@{/registration}" method="post" th:object="${admin}">
+                <form th:action="@{/admin-registration}" method="post" th:object="${admin}">
                     <div class="form-group">
                         <label class="control-label" for="name"> First Name </label>
                         <input id="name" class="form-control nam" th:field="*{name}"

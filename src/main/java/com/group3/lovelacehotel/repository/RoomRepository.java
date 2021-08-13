@@ -22,7 +22,7 @@ public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificat
     Set<Room> findByIfBookedFalse();
 
     @Query("select r from Room r where " +
-            "r.ifBooked=null " +
+            "r.ifBooked=0 " +
             "and r.numberOfAdults =:numberOfAdults " +
             "and r.numberOfChildren=:numberOfChildren ")
     Set<Room> getAvailableRoomsByParams(@Param("numberOfAdults") Long numberOfAdults,
