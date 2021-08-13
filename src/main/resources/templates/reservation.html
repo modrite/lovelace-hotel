@@ -141,7 +141,7 @@
 
                             <div class="row" th:each="room : ${rooms}">
                                 <div class="col-md-6 col-lg-4" data-aos="fade-up" th:if="${room.type == 'single'}">
-                                    <a th:href="@{/roomsHotel(startDate=${search.checkInDate},endDate=${search.checkOutDate})}" class="room">
+                                    <a th:href="@{/reservation-confirmation(startDate=${search.checkInDate},endDate=${search.checkOutDate})}" class="room">
                                         <figure class="img-wrap">
                                             <img th:src="@{~/images/img_1.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
                                         </figure>
@@ -153,7 +153,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-lg-4" data-aos="fade-up" th:if="${room.type == 'family'}">
-                                    <a th:href="@{/roomsHotel(startDate=${search.checkInDate},endDate=${search.checkOutDate})}" class="room">
+                                    <a th:href="@{/reservation-confirmation(startDate=${search.checkInDate},endDate=${search.checkOutDate})}" class="room">
                                     <figure class="img-wrap">
                                             <img th:src="@{~/images/img_2.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
                                         </figure>
@@ -165,7 +165,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-lg-4" data-aos="fade-up" th:if="${room.type == 'presidential'}">
-                                    <a th:href="@{/roomsHotel(startDate=${search.checkInDate},endDate=${search.checkOutDate})}" class="room">
+                                    <a th:href="@{/reservation-confirmation(startDate=${search.checkInDate},endDate=${search.checkOutDate})}" class="room">
                                     <figure class="img-wrap">
                                             <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
                                         </figure>

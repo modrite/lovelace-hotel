@@ -20,7 +20,6 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
 
 @RequiredArgsConstructor
 @Controller
@@ -124,7 +123,7 @@ public class RoomController {
         model.addAttribute("checkInDate",startDate);
         model.addAttribute("checkOutDate",endDate);
 
-        return "form";
+        return "reservation-confirmation";
     }
 
 }
