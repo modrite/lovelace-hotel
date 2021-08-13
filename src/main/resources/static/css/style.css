@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5 {
 .emailAd, .pass, .loginBtn, .nam, .surnam, .phon{
     font-size: 1.4rem;
 }
-.emailAddress, .passw, .customer, .loginBtn{
+.emailAddress, .passw, .customer, .loginBtn, .admin{
     color: #fff;
 }
 

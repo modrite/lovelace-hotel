@@ -117,12 +117,14 @@
                                         <td th:text="${room.price}"></td>
                                         <td th:text="${room.numberOfAdults}"></td>
                                         <td th:text="${room.numberOfChildren}"></td>
-                                        <td><a th:href="@{/rooms/edit/{id}(id=${room.id})}" class="btn btn-primary a-btn-slide-text">
+                                        <td><a th:href="@{/rooms/edit/{id}(id=${room.id})}"
+                                               class="btn btn-primary a-btn-slide-text">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                             <span><strong>Edit</strong></span></a></td>
-                                        <td><a th:href="@{/rooms/delete/{id}(id=${room.id})}" class="btn btn-danger a-btn-slide-text">
+                                        <td><a th:href="@{/rooms/delete/{id}(id=${room.id})}"
+                                               class="btn btn-danger a-btn-slide-text">
                                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                            <span><strong>Delete</strong></span>  </a></td>
+                                            <span><strong>Delete</strong></span> </a></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -130,15 +132,25 @@
                         </div>
                     </div>
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="form-group">
+						<span class="user admin">New admin? <a href="/" th:href="@{/admin-registration}">Register
+								here</a></span>
+
+                </div>
                 </body>
 
 
             </div>
         </div>
     </div>
-</section>
 
+</section>
 <!-- END section -->
+
 
 <script th:src="@{~/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{~/js/jquery-migrate-3.0.1.min.js}"></script>
