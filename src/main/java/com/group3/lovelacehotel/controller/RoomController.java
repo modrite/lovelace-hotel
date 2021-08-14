@@ -116,6 +116,8 @@ public class RoomController {
     @GetMapping("/reservation-confirmation")
     public String bookRoomWithDetails(@RequestParam("startDate") LocalDate startDate,
                                       @RequestParam("endDate") LocalDate endDate,
+                                      @RequestParam("adults") Integer adults,
+                                      @RequestParam("children") Integer children,
                                       Principal principal,
                                       Model model, Reservation reservation){
         User user = Optional.ofNullable(principal)
@@ -127,6 +129,8 @@ public class RoomController {
         model.addAttribute("isUserLoggedIn", Objects.nonNull(user));
         model.addAttribute("checkInDate",startDate);
         model.addAttribute("checkOutDate",endDate);
+        model.addAttribute("numberOfAdults",adults);
+        model.addAttribute("numberOfChildren",children);
         model.addAttribute("reservation", reservation);
 
         return "reservation-confirmation";
