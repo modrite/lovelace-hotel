@@ -1,6 +1,6 @@
 package com.group3.lovelacehotel.controller;
 
-import com.group3.lovelacehotel.model.AdminRegistrationDto;
+import com.group3.lovelacehotel.model.dto.AdminRegistrationDto;
 import com.group3.lovelacehotel.service.AdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
