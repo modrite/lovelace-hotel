@@ -1,11 +1,10 @@
 package com.group3.lovelacehotel.service;
 
 import com.group3.lovelacehotel.model.*;
-import com.group3.lovelacehotel.repository.AdminRepository;
+import com.group3.lovelacehotel.model.dto.AdminRegistrationDto;
+import com.group3.lovelacehotel.model.dto.UserRegistrationDto;
 import com.group3.lovelacehotel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -64,5 +63,13 @@ public class UserServiceImpl implements UserService,AdminService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void updatePassword(String password, Long userId) {
+        userRepository.updatePassword(password, userId);
+    }
 
 }

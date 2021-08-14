@@ -56,6 +56,8 @@ public class RoomController {
 
         Room room = roomService.getById(id);
         model.addAttribute("room", room);
+        System.out.println("room availability on edit = " + room.getIfBooked());
+
         return "edit-room";
     }
 
@@ -80,6 +82,8 @@ public class RoomController {
 
     @PostMapping("/update/{id}")
     public String updateRoom(@PathVariable("id") Long id, @Valid Room room, BindingResult result, Model model) {
+        System.out.println("room availability = " + room.getIfBooked());
+
         if (result.hasErrors()) {
             return "edit-room";
         }

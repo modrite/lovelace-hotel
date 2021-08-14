@@ -1,6 +1,6 @@
 package com.group3.lovelacehotel.controller;
 
-import com.group3.lovelacehotel.model.UserRegistrationDto;
+import com.group3.lovelacehotel.model.dto.UserRegistrationDto;
 import com.group3.lovelacehotel.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,4 +33,22 @@ public class UserRegistrationController {
         userService.save(registrationDto);
         return "redirect:/registration?success";
     }
+
+//    @PostMapping
+//    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto registrationDto,
+//                                      BindingResult result){
+//
+//        User existing = userService.findByEmail(registrationDto.getEmail());
+//        if (existing != null){
+//            result.rejectValue("email", null, "There is already an account registered with that email");
+//        }
+//
+//        if (result.hasErrors()){
+//            return "registration";
+//        }
+//
+//        userService.save(registrationDto);
+//        return "redirect:/registration?success";
+//    }
+
 }

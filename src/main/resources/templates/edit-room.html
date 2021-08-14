@@ -32,6 +32,9 @@
             <input type="text" th:field="*{numberOfChildren}" required class="form-control" id="exampleInputLanguage2">
             <span th:if="${#fields.hasErrors('numberOfChildren')}" th:errors="*{numberOfChildren}" class="text-danger"></span>
         </div>
+        <div style="display:none">
+            <input type="checkbox" th:field="*{ifBooked}" class="form-control" id="exampleInputLanguage3">
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
