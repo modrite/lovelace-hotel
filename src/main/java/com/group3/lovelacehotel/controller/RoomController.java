@@ -1,10 +1,12 @@
 package com.group3.lovelacehotel.controller;
 
 
+import com.group3.lovelacehotel.model.Reservation;
 import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.model.RoomSearch;
 import com.group3.lovelacehotel.model.User;
 import com.group3.lovelacehotel.repository.UserRepository;
+import com.group3.lovelacehotel.service.ReservationService;
 import com.group3.lovelacehotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +30,7 @@ public class RoomController {
 
     private final RoomService roomService;
     private final UserRepository userRepository;
+    private final ReservationService reservationService;
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
@@ -109,10 +112,12 @@ public class RoomController {
         return "reservation";
     }
 
+
+    @GetMapping("/reservation-confirmation")
     public String bookRoomWithDetails(@RequestParam("startDate") LocalDate startDate,
                                       @RequestParam("endDate") LocalDate endDate,
                                       Principal principal,
-                                      Model model){
+                                      Model model, Reservation reservation){
         User user = Optional.ofNullable(principal)
                 .map(Principal::getName)
                 .map(userRepository::findByEmail)
@@ -122,7 +127,19 @@ public class RoomController {
         model.addAttribute("isUserLoggedIn", Objects.nonNull(user));
         model.addAttribute("checkInDate",startDate);
         model.addAttribute("checkOutDate",endDate);
+        model.addAttribute("reservation", reservation);
 
+        return "reservation-confirmation";
+    }
+
+    @PostMapping ("/reservation-confirmation")
+    public String saveNewReservation(@Valid Reservation reservation, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "reservation";
+        }
+        model.addAttribute("reservation", reservation);
+
+        reservationService.saveReservation(reservation);
         return "reservation-confirmation";
     }
 
