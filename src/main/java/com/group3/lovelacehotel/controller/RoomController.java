@@ -9,6 +9,7 @@ import com.group3.lovelacehotel.repository.UserRepository;
 import com.group3.lovelacehotel.service.ReservationService;
 import com.group3.lovelacehotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -114,19 +115,14 @@ public class RoomController {
 
 
     @GetMapping("/reservation-confirmation")
-    public String bookRoomWithDetails(@RequestParam("startDate") LocalDate startDate,
-                                      @RequestParam("endDate") LocalDate endDate,
+    public String bookRoomWithDetails(@DateTimeFormat(pattern = "dd-MM-yyyy") @RequestParam("startDate") LocalDate startDate,
+                                      @DateTimeFormat(pattern = "dd-MM-yyyy") @RequestParam("endDate") LocalDate endDate,
                                       @RequestParam("adults") Integer adults,
                                       @RequestParam("children") Integer children,
-                                      Principal principal,
-                                      Model model, Reservation reservation){
-        User user = Optional.ofNullable(principal)
-                .map(Principal::getName)
-                .map(userRepository::findByEmail)
-                .orElse(null);
-
-        model.addAttribute("currentUser",user);
-        model.addAttribute("isUserLoggedIn", Objects.nonNull(user));
+                                      @RequestParam("roomId") Long roomId,
+                                      Model model,
+                                      Reservation reservation){
+        model.addAttribute("roomId",roomId);
         model.addAttribute("checkInDate",startDate);
         model.addAttribute("checkOutDate",endDate);
         model.addAttribute("numberOfAdults",adults);

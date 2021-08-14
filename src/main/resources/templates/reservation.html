@@ -1,4 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -141,7 +143,7 @@
 
                             <div class="row" th:each="room : ${rooms}">
                                 <div class="col-md-6 col-lg-4" data-aos="fade-up" th:if="${room.type == 'single'}">
-                                    <a th:href="@{/reservation-confirmation(startDate=${search.checkInDate},endDate=${search.checkOutDate},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
+                                    <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
                                        class="room">
                                         <figure class="img-wrap">
                                             <img th:src="@{~/images/img_1.jpg}" alt="Free website template"
@@ -155,7 +157,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-lg-4" data-aos="fade-up" th:if="${room.type == 'family'}">
-                                    <a th:href="@{/reservation-confirmation(startDate=${search.checkInDate},endDate=${search.checkOutDate},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
+                                    <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
                                        class="room">
                                         <figure class="img-wrap">
                                             <img th:src="@{~/images/img_2.jpg}" alt="Free website template"
@@ -170,7 +172,7 @@
 
                                 <div class="col-md-6 col-lg-4" data-aos="fade-up"
                                      th:if="${room.type == 'presidential'}">
-                                    <a th:href="@{/reservation-confirmation(startDate=${search.checkInDate},endDate=${search.checkOutDate},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
+                                    <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
                                        class="room">
                                         <figure class="img-wrap">
                                             <img th:src="@{~/images/img_3.jpg}" alt="Free website template"

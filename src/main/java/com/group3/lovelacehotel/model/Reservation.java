@@ -43,6 +43,12 @@ public class Reservation {
     @NotBlank
     private LocalDateTime checkOutDate;
 
+    @Transient
+    private Long roomId;
+
+    @Transient
+    private Long userId;
+
     //    @NotBlank
 //    @Column(name = "number_of_rooms")
 //    private Long numberOfRooms;
