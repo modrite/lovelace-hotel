@@ -51,7 +51,8 @@ public class PasswordForgotController {
 
         User user = userService.findByEmail(form.getEmail());
         if (user == null){
-            result.rejectValue("email", null, "We could not find an account for that e-mail address.");
+            result.rejectValue("email", null, "We could not find an account with this e-mail address. " +
+                    "Please enter your registered email address or create a new account");
             return "forgot-password";
         }
 
@@ -62,14 +63,14 @@ public class PasswordForgotController {
         tokenRepository.save(token);
 
         Mail mail = new Mail();
-        mail.setFrom("no-reply@memorynotfound.com");
+        mail.setFrom("no-reply@lovelace.com");
         mail.setTo(user.getEmail());
         mail.setSubject("Password reset request");
 
         Map<String, Object> model = new HashMap<>();
         model.put("token", token);
         model.put("user", user);
-        model.put("signature", "https://memorynotfound.com");
+        model.put("signature", "http://localhost:8080/");
         String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
         model.put("resetUrl", url + "/reset-password?token=" + token.getToken());
         mail.setModel(model);
