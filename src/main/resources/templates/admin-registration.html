@@ -8,9 +8,10 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
-    <link rel="stylesheet"  th:href="@{~/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{~/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{~/css/animate.css}">
     <link rel="stylesheet" th:href="@{~/css/owl.carousel.min.css}">
     <link rel="stylesheet" th:href="@{~/css/aos.css}">
@@ -34,7 +35,7 @@
             <div class="col-6 col-lg-8">
 
 
-                <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+                <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -66,7 +67,8 @@
     </div>
 </header>
 <!-- END head -->
-<section class="site-hero overlay" th:style="'background-image:url('+ @{/images/hero_4.jpg} +');'"  data-stellar-background-ratio="0.5">
+<section class="site-hero overlay" th:style="'background-image:url('+ @{/images/hero_4.jpg} +');'"
+         data-stellar-background-ratio="0.5">
 
     <br>
     <br>
@@ -82,7 +84,8 @@
                 <!-- success message -->
                 <div th:if="${param.success}">
                     <div class="alert alert-info">You've successfully registered
-                        to our awesome app!</div>
+                        to our awesome app!
+                    </div>
                 </div>
 
                 <h1 class="reg">Registration</h1>
@@ -91,21 +94,21 @@
                     <div class="form-group">
                         <label class="control-label" for="name"> First Name </label>
                         <input id="name" class="form-control nam" th:field="*{name}"
-                               required autofocus="autofocus" />
+                               required autofocus="autofocus"/>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="surname"> Last Name </label>
                         <input
                                 id="surname" class="form-control surnam" th:field="*{surname}"
-                                required autofocus="autofocus" />
+                                required autofocus="autofocus"/>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="email"> Email address</label>
                         <input
                                 id="email" class="form-control emailAd" th:field="*{email}" required
-                                autofocus="autofocus" />
+                                autofocus="autofocus"/>
                         <!--						<div id="usernameHelp" class="form-text">We'll never share your email with anyone else.</div>-->
                         <!--						<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></span>-->
                     </div>
@@ -114,14 +117,14 @@
                         <label class="control-label" for="phoneNumber"> Phone number</label>
                         <input
                                 id="phoneNumber" class="form-control phon" th:field="*{phoneNumber}" required
-                                autofocus="autofocus" />
+                                autofocus="autofocus"/>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="password"> Password </label>
                         <input
                                 id="password" class="form-control pass" type="password"
-                                th:field="*{password}" required autofocus="autofocus" />
+                                th:field="*{password}" required autofocus="autofocus"/>
                     </div>
 
                     <div class="form-group">
@@ -150,7 +153,6 @@
 
 <script th:src="@{~/js/bootstrap-datepicker.js}"></script>
 <script th:src="@{~/js/jquery.timepicker.min.js}"></script>
-
 
 
 <script th:src="@{~/js/main.js}"></script>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Registration and Login App</title>
+    <title>Edit Room</title>
 
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -98,7 +98,8 @@
 
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputLanguage1" class="form-label room1">How many adults can stay in this room?</label>
+                    <label for="exampleInputLanguage1" class="form-label room1">How many adults can stay in this
+                        room?</label>
                     <input type="text" th:field="*{numberOfAdults}" required class="form-control room2"
                            id="exampleInputLanguage1">
                     <span th:if="${#fields.hasErrors('numberOfAdults')}" th:errors="*{numberOfAdults}"

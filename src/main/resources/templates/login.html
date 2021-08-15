@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Registration and Login App</title>
+	<title>Login</title>
 
 	<link rel="stylesheet"
 		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -118,10 +118,10 @@
 					</div>
 				</form>
 				<div class="form-group">
-					<span class="user">Forgot password? <a href="/" th:href="@{/forgot-password}">Reset password</a></span>
+					<span class="user passw">Forgot password? <a href="/" th:href="@{/forgot-password}">Reset password</a></span>
 				</div>
 				<div class="form-group">
-						<span class="user">New user? <a href="/" th:href="@{/registration}">Register
+						<span class="user emailAddress">New user? <a href="/" th:href="@{/registration}">Register
 								here</a></span>
 				</div>
 				<div>
@@ -141,15 +141,9 @@
 <script th:src="@{~/js/owl.carousel.min.js}"></script>
 <script th:src="@{~/js/jquery.stellar.min.js}"></script>
 <script th:src="@{~/js/jquery.fancybox.min.js}"></script>
-
-
 <script th:src="@{~/js/aos.js}"></script>
-
 <script th:src="@{~/js/bootstrap-datepicker.js}"></script>
 <script th:src="@{~/js/jquery.timepicker.min.js}"></script>
-
-
-
 <script th:src="@{~/js/main.js}"></script>
 
 </body>
