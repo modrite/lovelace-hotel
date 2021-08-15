@@ -91,7 +91,7 @@
                     <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputAuthor1" class="form-label room1">>Price per night</label>
+                    <label for="exampleInputAuthor1" class="form-label room1">Price per night</label>
                     <input type="text" class="form-control room2" required th:field="*{price}" id="exampleInputAuthor1"
                            aria-describedby="authorHelp">
                     <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></span>
