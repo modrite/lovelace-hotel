@@ -38,6 +38,11 @@ h1, h2, h3, h4, h5 {
 .emailAddress, .passw, .customer, .loginBtn, .admin{
     color: #fff;
 }
+.env{
+padding: 4px 4px !important;
+position: relative;
+top: 10px;
+}
 
 .font-family-serif {
   font-family: "Playfair Display", times, serif; }
