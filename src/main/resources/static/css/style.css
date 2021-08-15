@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5 {
 .emailAddress, .passw, .customer, .loginBtn, .admin, .room1, .subBtn{
     color: #fff;
 }
-.env{
+.env, .lok {
 padding: 4px 4px !important;
 position: relative;
 top: 10px;
