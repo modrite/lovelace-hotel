@@ -1,7 +1,8 @@
 package com.group3.lovelacehotel.model.dto;
 
 import com.group3.lovelacehotel.constraint.FieldMatch;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotEmpty;
 
 @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match")
 public class PasswordResetDto {
