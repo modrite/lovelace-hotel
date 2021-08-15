@@ -182,7 +182,6 @@
   };
   windowScroll();
 
-
   var goToTop = function() {
 
     $('.js-gotop').on('click', function(event){
@@ -211,3 +210,5 @@
 
 
 })(jQuery);
+
+

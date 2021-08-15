@@ -45,4 +45,11 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/reservation-confirmation")
+    public String reservationConfirmation() {
+        return "reservation-confirmation";
+    }
+
+
+
 }
