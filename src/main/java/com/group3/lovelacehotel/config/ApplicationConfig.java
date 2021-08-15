@@ -26,6 +26,14 @@ public class ApplicationConfig {
     }
 
     @Bean
+    public SpringTemplateEngine templateEngineV2(ITemplateResolver templateResolver) {
+        SpringTemplateEngine engine = new SpringTemplateEngine();
+        engine.addDialect(new Java8TimeDialect());
+        engine.setTemplateResolver(templateResolver);
+        return engine;
+    }
+
+    @Bean
     public SpringSecurityDialect securityDialect() {
         return new SpringSecurityDialect();
     }
