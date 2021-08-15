@@ -98,7 +98,7 @@
                         <br>
                         <div class="row">
                             <div class="col-md-10">
-                                <p class="my-10"><a href="/rooms/add-room" class="btn btn-success a-btn-slide-text">
+                                <p class="my-10"><a href="/rooms/add-room" class="btn btn-success a-btn-slide-text subBtn">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                     <span><strong>Add</strong></span>
                                 </a></i></a></p>
@@ -118,12 +118,12 @@
                                         <td th:text="${room.numberOfAdults}"></td>
                                         <td th:text="${room.numberOfChildren}"></td>
                                         <td><a th:href="@{/rooms/edit/{id}(id=${room.id})}"
-                                               class="btn btn-primary a-btn-slide-text">
+                                               class="btn btn-primary a-btn-slide-text subBtn">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                             <span><strong>Edit</strong></span></a></td>
                                         <td><a th:href="@{/rooms/delete/{id}(id=${room.id})}"
-                                               class="btn btn-danger a-btn-slide-text">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                               class="btn btn-danger a-btn-slide-text subBtn">
+                                            <span class="glyphicon glyphicon-remove " aria-hidden="true"></span>
                                             <span><strong>Delete</strong></span> </a></td>
                                     </tr>
                                     </tbody>

@@ -32,10 +32,10 @@ h1, h2, h3, h4, h5 {
     font-family: "Roboto", arial, sans-serif;
 }
 
-.emailAd, .pass, .loginBtn, .nam, .surnam, .phon{
+.emailAd, .pass, .loginBtn, .nam, .surnam, .phon, .room2, .subBtn{
     font-size: 1.4rem;
 }
-.emailAddress, .passw, .customer, .loginBtn, .admin{
+.emailAddress, .passw, .customer, .loginBtn, .admin, .room1, .subBtn{
     color: #fff;
 }
 .env{
