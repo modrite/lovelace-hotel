@@ -18,10 +18,8 @@
     <link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker.css}">
     <link rel="stylesheet" th:href="@{~/css/jquery.timepicker.css}">
     <link rel="stylesheet" th:href="@{~/css/fancybox.min.css}">
-
     <link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min.css}">
     <link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min.css}">
-
     <!-- Theme Style -->
     <link rel="stylesheet" th:href="@{~/css/style.css}">
 </head>
@@ -149,8 +147,15 @@
                                    th:value="${numberOfChildren}" name="numberOfChildren"/>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="price" class="font-weight-bold text-black">Total Price (EUR)</label>
+                            <input type="text" id="price" class="form-control"
+                                   th:value="${price}" name="price"/>
+                        </div>
+                    </div>
 
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-md-6 form-group">
                             <input type="submit" value="Confirm Booking"
                                    class="btn btn-primary text-white py-3 px-5 font-weight-bold"/>
