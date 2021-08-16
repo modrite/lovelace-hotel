@@ -162,7 +162,7 @@
         <div class="row" >
             <div class="col-md-6 col-lg-4 " data-aos="fade-up"
                  th:if="${room.type == 'single'}">
-                <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
+                <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren},roomPrice=${room.price})}"
                    class="room">
                     <figure class="img-wrap">
                         <img th:src="@{~/images/img_1.jpg}" alt="Free website template"
@@ -177,7 +177,7 @@
 
             <div class="col-md-6 col-lg-4" data-aos="fade-up"
                  th:if="${room.type == 'family'}">
-                <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
+                <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren},roomPrice=${room.price})}"
                    class="room">
                     <figure class="img-wrap">
                         <img th:src="@{~/images/img_2.jpg}" alt="Free website template"
@@ -192,7 +192,7 @@
 
             <div class="col-md-6 col-lg-4" data-aos="fade-up"
                  th:if="${room.type == 'luxury'}">
-                <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren})}"
+                <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren},roomPrice=${room.price})}"
                    class="room">
                     <figure class="img-wrap">
                         <img th:src="@{~/images/img_3.jpg}" alt="Free website template"

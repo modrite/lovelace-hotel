@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -122,6 +123,7 @@ public class RoomController {
                                       @RequestParam("adults") Integer adults,
                                       @RequestParam("children") Integer children,
                                       @RequestParam("roomId") Long roomId,
+                                      @RequestParam("roomPrice") Double roomPrice,
                                       Model model,
                                       Reservation reservation){
         model.addAttribute("roomId",roomId);
@@ -130,8 +132,14 @@ public class RoomController {
         model.addAttribute("numberOfAdults",adults);
         model.addAttribute("numberOfChildren",children);
         model.addAttribute("reservation", reservation);
-//        double priceToPay = reservation.getPrice()*reservation.getStayNights();
-//        model.addAttribute("price", priceToPay);
+
+        if(roomPrice != null && startDate != null && endDate != null){
+            Long numberOfNights = startDate.until(endDate, ChronoUnit.DAYS);
+            Double priceToPay = roomPrice*numberOfNights;
+            model.addAttribute("price", priceToPay);
+        }
+        else{//probably would error before it got to this
+        }
 
         return "reservation-confirmation";
     }
