@@ -14,11 +14,11 @@ public class RoomSearch {
     private Long numberOfAdults;
     @NotNull
     private Long numberOfChildren;
-    @NotNull
+    @NotNull(message = "Please enter checkin date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate checkInDate;
-    @NotNull
+    @NotNull(message = "Please enter checkout date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate checkOutDate;

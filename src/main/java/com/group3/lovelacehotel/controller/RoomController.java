@@ -16,11 +16,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -139,7 +142,17 @@ public class RoomController {
     @PostMapping ("/reservation-confirmation")
     public String saveNewReservation(@Valid Reservation reservation, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "reservation";
+            ////////////////this just describes errors
+            List<FieldError> errors = result.getFieldErrors();
+            for (FieldError error : errors ) {
+                System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
+            }
+            System.out.println("errorcheck reservation = " + reservation);
+            System.out.println("errorcheck model = " + model);
+            /////////////////////////////////////////////////////////////////////////
+            // return "reservation";
+            return "reservation-confirmation";
+
         }
         model.addAttribute("reservation", reservation);
 

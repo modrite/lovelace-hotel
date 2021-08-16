@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -27,7 +29,7 @@ public class Reservation {
     @JoinColumn(name = "room_id")
     Room room;
 
-    @NotBlank
+    @NotNull
     private Long stayNights;
 
     @NotBlank
@@ -37,10 +39,10 @@ public class Reservation {
 
     private Double totalPrice;
 
-    @NotBlank
+    @NotNull
     private LocalDateTime checkInDate;
 
-    @NotBlank
+    @NotNull
     private LocalDateTime checkOutDate;
 
     @Transient
@@ -53,15 +55,10 @@ public class Reservation {
 //    @Column(name = "number_of_rooms")
 //    private Long numberOfRooms;
 //
-//    @NotBlank
-//    @Column(name = "number_of_adults")
-//    @Min(value = 1)
-//    private Long numberOfAdults;
-//
-//    @NotBlank
-//    @Column(name = "number_of_children")
-//    @Min(value = 0)
-//    private Long numberOfChildren;
+    @NotNull
+    private Long numberOfAdults;
+    @NotNull
+    private Long numberOfChildren;
 
 
 }
