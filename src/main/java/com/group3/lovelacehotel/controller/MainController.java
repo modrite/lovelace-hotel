@@ -50,6 +50,11 @@ public class MainController {
         return "reservation-confirmation";
     }
 
+    @GetMapping("/thankYou")
+    public String thankYou() {
+        return "thankYou";
+    }
+
 
 
 }

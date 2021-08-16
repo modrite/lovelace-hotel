@@ -53,8 +53,9 @@
                                             <li><a th:href="@{/contact}">Contact</a></li>
                                             <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                                             <li><a th:href="@{/login}">Log in</a></li>
-<!--                                            <li><a th:href="@{/rooms}" sec:authorize="hasRole('ADMIN')">For Admin</a></li>-->
-                                            <li><a th:href="@{/rooms}" type ="hidden" th:object="${user}">For Admin</a></li>
+                                            <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/rooms}" >For Admin</a></li>
+<!--                                            <li type ="hidden" th:object="${user}"><a th:href="@{/rooms}" >For Admin</a></li>-->
+<!--                                            <li type ="hidden" th:object="${user}"><a th:href="@{/rooms}" >For Admin</a></li>-->
                                             <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a>
                                             </li>
                                         </ul>
@@ -123,7 +124,7 @@
                     Semantics, a large language ocean.</p>
                 <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span
                         class="mr-3 font-family-serif"><em>or</em></span><a
-                        href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox
+                        href="https://www.youtube.com/watch?v=6stlCkUDG_s&list=PL4Gr5tOAPttLOY9IrWVjJlv4CtkYI5cI_&index=1" data-fancybox
                         class="text-uppercase letter-spacing-1">See video</a></p>
             </div>
 
@@ -172,7 +173,7 @@
                         <img th:src="@{~/images/img_3.jpg}" alt="Free website template" class="img-fluid mb-3" src="">
                     </figure>
                     <div class="p-3 text-center room-info">
-                        <h2>Presidential Room</h2>
+                        <h2>Luxury Room</h2>
                         <span class="text-uppercase letter-spacing-1">250EUR / per night</span>
                     </div>
                 </a>

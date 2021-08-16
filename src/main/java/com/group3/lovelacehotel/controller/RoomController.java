@@ -130,6 +130,8 @@ public class RoomController {
         model.addAttribute("numberOfAdults",adults);
         model.addAttribute("numberOfChildren",children);
         model.addAttribute("reservation", reservation);
+//        double priceToPay = reservation.getPrice()*reservation.getStayNights();
+//        model.addAttribute("price", priceToPay);
 
         return "reservation-confirmation";
     }
@@ -151,8 +153,10 @@ public class RoomController {
         }
         model.addAttribute("reservation", reservation);
 
+
         reservationService.confirm(reservation);
-        return "reservation-confirmation";
+
+        return "thankYou";
     }
 
 }
