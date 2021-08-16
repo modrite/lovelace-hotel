@@ -4,7 +4,6 @@ package com.group3.lovelacehotel.controller;
 import com.group3.lovelacehotel.model.Reservation;
 import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.model.RoomSearch;
-import com.group3.lovelacehotel.model.User;
 import com.group3.lovelacehotel.repository.UserRepository;
 import com.group3.lovelacehotel.service.ReservationService;
 import com.group3.lovelacehotel.service.RoomService;
@@ -20,12 +19,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.security.Principal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -156,7 +151,7 @@ public class RoomController {
         }
         model.addAttribute("reservation", reservation);
 
-        reservationService.saveReservation(reservation);
+        reservationService.confirm(reservation);
         return "reservation-confirmation";
     }
 

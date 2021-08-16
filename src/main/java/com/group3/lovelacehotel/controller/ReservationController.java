@@ -36,7 +36,7 @@ public class ReservationController {
             return "reservation";
         }
 
-        reservationService.saveReservation(reservation);
+        reservationService.confirm(reservation);
         return "reservation";
     }
 

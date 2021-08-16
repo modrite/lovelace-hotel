@@ -6,7 +6,6 @@ import com.group3.lovelacehotel.model.RoomSearch;
 import com.group3.lovelacehotel.repository.ReservationRepository;
 import com.group3.lovelacehotel.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,8 +14,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-
-import static org.springframework.data.domain.ExampleMatcher.matchingAll;
 
 @Transactional
 @RequiredArgsConstructor
@@ -89,9 +86,8 @@ public class RoomServiceImpl implements RoomService {
     private Set<Room> availableRooms(LocalDate date,
                                      Long numberOfAdults,
                                      Long numberOfChildren) {
-        var dateTime = date.atStartOfDay();
         var rooms = roomRepository.getAvailableRoomsByParams(numberOfAdults, numberOfChildren);
-        var checkedOutRooms = reservationRepository.availableRoomsByParam(dateTime, numberOfAdults, numberOfChildren);
+        var checkedOutRooms = reservationRepository.availableRoomsByParam(date, numberOfAdults, numberOfChildren);
         rooms.addAll(checkedOutRooms);
 
         System.out.println("rooms size = " + rooms.size());

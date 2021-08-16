@@ -3,12 +3,15 @@ package com.group3.lovelacehotel.service;
 import com.group3.lovelacehotel.exception.BadRequestException;
 import com.group3.lovelacehotel.model.Reservation;
 import com.group3.lovelacehotel.model.ReservationSearch;
+import com.group3.lovelacehotel.model.Room;
 import com.group3.lovelacehotel.repository.ReservationRepository;
+import com.group3.lovelacehotel.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,13 +23,14 @@ import static org.springframework.data.domain.ExampleMatcher.matchingAll;
 public class ReservationServiceImpl implements ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final RoomRepository roomRepository;
 
 
     public List<Reservation> search(ReservationSearch reservationSearch) {
         Reservation reservation = new Reservation();
         reservation.setType(reservationSearch.getType());
-        reservation.setCheckInDate(reservationSearch.getCheckInDate());
-        reservation.setCheckOutDate(reservationSearch.getExpectedCheckOutDate());
+        reservation.setCheckInDate(reservationSearch.getCheckInDate().toLocalDate());
+        reservation.setCheckOutDate(reservationSearch.getExpectedCheckOutDate().toLocalDate());
         reservation.setStayNights(reservationSearch.getStayNights());
 
         Example<Reservation> reservationExample = Example.of(reservation, matchingAll().withIgnoreNullValues());
@@ -38,6 +42,27 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public Reservation saveReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
+    }
+
+    @Override
+    public Reservation confirm(Reservation reservation) {
+        Room room = roomRepository.getById(reservation.getRoomId());
+        Long numberOfNights = reservation.getCheckInDate().until(reservation.getCheckOutDate(), ChronoUnit.DAYS);
+
+        Double totalPrice = numberOfNights * room.getPrice();
+
+        reservation.setRoom(room);
+        reservation.setType(room.getType());
+        reservation.setStayNights(numberOfNights);
+        reservation.setPrice(totalPrice);
+
+
+        var savedReservation = reservationRepository.save(reservation);
+        room.setIfBooked(true);
+
+        roomRepository.save(room);
+
+        return savedReservation;
     }
 
     @Override
@@ -60,9 +85,9 @@ public class ReservationServiceImpl implements ReservationService {
         existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
         existingReservation.setCheckOutDate(updatedReservation.getCheckOutDate());
         existingReservation.setStayNights(updatedReservation.getStayNights());
-        existingReservation.setTotalPrice(updatedReservation.getTotalPrice());
+//        existingReservation.setTotalPrice(updatedReservation.getTotalPrice());
         existingReservation.setPrice(updatedReservation.getPrice());
-        existingReservation.setUser(updatedReservation.getUser());
+//        existingReservation.setUser(updatedReservation.getUser());
         existingReservation.setRoom(updatedReservation.getRoom());
 
 

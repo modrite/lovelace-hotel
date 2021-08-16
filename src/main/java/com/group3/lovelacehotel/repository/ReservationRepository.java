@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
@@ -20,7 +21,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
             "r.checkOutDate >=:date " +
             "and r.room.numberOfAdults =:numberOfAdults " +
             "and r.room.numberOfChildren =:numberOfChildren ")
-    Set<Room> availableRoomsByParam(@Param("date") LocalDateTime date,
-                             @Param("numberOfAdults") Long numberOfAdults,
-                             @Param("numberOfChildren") Long numberOfChildren);
+    Set<Room> availableRoomsByParam(@Param("date") LocalDate date,
+                                    @Param("numberOfAdults") Long numberOfAdults,
+                                    @Param("numberOfChildren") Long numberOfChildren);
 }
