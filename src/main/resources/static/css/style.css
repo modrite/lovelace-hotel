@@ -44,6 +44,20 @@ position: relative;
 top: 10px;
 }
 
+.thank{
+font-family: "Playfair Display", times, serif;
+color: #e83e8c;
+font size: 3rem !important;
+
+}
+
+.thanks{
+font-family: "Playfair Display", times, serif;
+color: #e83e8c;
+font size: 2rem !important;
+
+}
+
 .font-family-serif {
   font-family: "Playfair Display", times, serif; }
 
