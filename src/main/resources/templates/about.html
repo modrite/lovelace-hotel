@@ -74,7 +74,7 @@
                 <ul class="custom-breadcrumbs mb-4">
                     <li><a th:href="@{/}">Home</a></li>
                     <li>&bullet;</li>
-                    <li>About</li>
+                    <li>About Us</li>
                 </ul>
             </div>
         </div>
@@ -93,19 +93,17 @@
         <div class="row align-items-center">
             <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
                 <figure class="img-absolute">
-                    <img th:src="@{~/images/food-1.jpg}" alt="Free Website Template by Templateux" class="img-fluid">
+                    <img th:src="@{~/images/code.jpg}" alt="Free Website Template by Templateux" class="img-fluid">
                 </figure>
-                <img th:src="@{~/images/img_1.jpg}" alt="Image" class="img-fluid rounded">
+                <img th:src="@{~/images/Ada_Lovelace.jpg}" alt="Image" class="img-fluid rounded">
             </div>
             <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
-                <h2 class="heading">Welcome!</h2>
-                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                    there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                    Semantics, a large language ocean.</p>
-                <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span
+                <h2 class="heading">Welcome</h2>
+                <p class="mb-4">to our final project- Hotel Management App which is a part of She Goes Tech bootcamp in close cooperation with Accenture. This was amazing opportunity to experience a team work, learn new things and solve the challenges.</p>
+                <p><a th:href="@{/}" class="btn btn-primary text-white py-2 mr-3">Back to App</a> <span
                         class="mr-3 font-family-serif"><em>or</em></span> <a
-                        href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox
-                        class="text-uppercase letter-spacing-1">See video</a></p>
+                        href="https://www.youtube.com/watch?v=6stlCkUDG_s&list=PL4Gr5tOAPttLOY9IrWVjJlv4CtkYI5cI_&index=1" data-fancybox
+                        class="text-uppercase letter-spacing-1">Enjoy video</a></p>
             </div>
 
         </div>
@@ -116,7 +114,7 @@
 
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-7 mb-5">
-            <h2 class="heading" data-aos="fade-up">Leadership</h2>
+            <h2 class="heading" data-aos="fade-up">The Team</h2>
         </div>
     </div>
 
@@ -126,8 +124,8 @@
                 <div class="flipper">
                     <div class="front" style="background-image: url(static/images/person_3.jpg);">
                         <div class="box">
-                            <h2>Will Peters</h2>
-                            <p>President</p>
+                            <h2>Laura Zveja</h2>
+                            <p>Junior Developer/ Team Leader</p>
                         </div>
                     </div>
                     <div class="back">
@@ -141,7 +139,7 @@
                             <div class="image mr-3 align-self-center">
                                 <img th:src="@{~/images/person_3.jpg}" alt="" src="">
                             </div>
-                            <div class="name align-self-center">Will Peters <span class="position">President</span>
+                            <div class="name align-self-center">Laura Zveja <span class="position">Junior Developer/ Team Leader</span>
                             </div>
                         </div>
                     </div>
@@ -154,8 +152,8 @@
                 <div class="flipper">
                     <div class="front" th:style="'background-image:url('+ @{/images/person_1.jpg} +');'">
                         <div class="box">
-                            <h2>Jane Williams</h2>
-                            <p>Business Manager</p>
+                            <h2>Modrīte Laurāne</h2>
+                            <p>Junior Developer</p>
                         </div>
                     </div>
                     <div class="back">
@@ -169,8 +167,8 @@
                             <div class="image mr-3 align-self-center">
                                 <img th:src="@{~/images/person_1.jpg}" alt="">
                             </div>
-                            <div class="name align-self-center">Jane Williams <span
-                                    class="position">Business Manager</span></div>
+                            <div class="name align-self-center">Modrīte Laurāne <span
+                                    class="position">Junior Developer</span></div>
                         </div>
                     </div>
                 </div>
@@ -180,24 +178,22 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="block-2">
                 <div class="flipper">
-                    <div class="front" th:style="'background-image:url('+ @{/images/person_2.jpg} +');'">
+                    <div class="front" th:style="'background-image:url('+ @{/images/anete.jpg} +');'">
                         <div class="box">
-                            <h2>Jeffrey Neddery</h2>
-                            <p>Marketing Director</p>
+                            <h2>Anete Bogdanova</h2>
+                            <p>Junior Developer</p>
                         </div>
                     </div>
                     <div class="back">
                         <!-- back content -->
                         <blockquote>
-                            <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an
-                                almost unorthographic life One day however a small line of blind text by the name of
-                                Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                            <p>&ldquo;Never say never or at least do not judge before you have actually tried it. That's how it all started for me. At a time (2020) when I as an aviation specialist was "grounded" and was looking for ways how to fill my days, a friend challenged me to try coding. I was lucky enough to be part of She Goes Tech bootcamp, which was a turning point..&rdquo;</p>
                         </blockquote>
                         <div class="author d-flex">
                             <div class="image mr-3 align-self-center">
-                                <img th:src="@{~/images/person_2.jpg}" alt="" src="">
+                                <img th:src="@{~/images/anete.jpg}" alt="" src="">
                             </div>
-                            <div class="name align-self-center">Jeffrey Neddery <span class="position">Marketing Director</span>
+                            <div class="name align-self-center">Anete Bogdanova <span class="position">Junior Developer</span>
                             </div>
                         </div>
                     </div>
@@ -208,100 +204,97 @@
 </div>
 <!-- END .block-2 -->
 
-<section class="section slider-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-7">
-                <h2 class="heading" data-aos="fade-up">Photos</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-                    right at the coast of the Semantics, a large language ocean.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                    <div class="slider-item">
-                        <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images"
-                           data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}"
-                                                                      alt="Image placeholder" class="img-fluid" src=""></a>
-                    </div>
-                </div>
-                <!-- END slider -->
-            </div>
+<!--<section class="section slider-section bg-light">-->
+<!--    <div class="container">-->
+<!--        <div class="row justify-content-center text-center mb-5">-->
+<!--            <div class="col-md-7">-->
+<!--                <h2 class="heading" data-aos="fade-up">Photos</h2>-->
+<!--                <p data-aos="fade-up" data-aos-delay="100">Far far away, behind the word mountains, far from the-->
+<!--                    countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove-->
+<!--                    right at the coast of the Semantics, a large language ocean.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-1.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-1.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-2.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-2.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-3.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-3.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-4.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-4.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-5.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-5.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-6.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-6.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                    <div class="slider-item">-->
+<!--                        <a th:href="@{~/images/slider-7.jpg}" data-fancybox="images"-->
+<!--                           data-caption="Caption for this image"><img th:src="@{~/images/slider-7.jpg}"-->
+<!--                                                                      alt="Image placeholder" class="img-fluid" src=""></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; END slider &ndash;&gt;-->
+<!--            </div>-->
 
-        </div>
-    </div>
-</section>
-<!-- END section -->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; END section &ndash;&gt;-->
 
 <div class="section">
     <div class="container">
 
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-7 mb-5">
-                <h2 class="heading" data-aos="fade">History</h2>
+                <h2 class="heading" data-aos="fade">Inspiration</h2>
             </div>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="timeline-item" date-is='2019' data-aos="fade">
-                    <h3>More Branches Worldwide</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <div class="timeline-item"  data-aos="fade">
+                    <h3>Lovelace Hotel</h3>
+                    <p>We were inspired by English mathematician and writer Ada Lovelace. She is known as the first computer programmer.</p>
+                    <p>Even though she wrote about a computer, the Analytical Engine, that was never built, she realized that the computer could follow a series of simple instructions, a program, to perform a complex calculation.</p>
                 </div>
 
-                <div class="timeline-item" date-is='2011' data-aos="fade">
-                    <h3>Company Full Blast</h3>
-                    <p>
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.
-                    </p>
-                </div>
+<!--                <div class="timeline-item"  data-aos="fade">-->
+<!--                    <h3>Company Full Blast</h3>-->
+<!--                    <p>-->
+<!--                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there-->
+<!--                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,-->
+<!--                        a large language ocean.-->
+<!--                    </p>-->
+<!--                </div>-->
 
-                <div class="timeline-item" date-is='2008' data-aos="fade">
-                    <h3>The Birth of the Company</h3>
-                    <p>
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.
-                    </p>
-                </div>
+<!--                <div class="timeline-item"  data-aos="fade">-->
+<!--                    <h3>The Birth of the Company</h3>-->
+<!--                    <p>-->
+<!--                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there-->
+<!--                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,-->
+<!--                        a large language ocean.-->
+<!--                    </p>-->
+<!--                </div>-->
             </div>
         </div>
 
@@ -310,18 +303,18 @@
 </div>
 
 
-<section class="section bg-image overlay" style="background-image: url('static/images/hero_4.jpg');">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-                <h2 class="text-white font-weight-bold">A Best Place To Stay. Reserve Now!</h2>
-            </div>
-            <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-                <a href="reservation.html" class="btn btn-outline-white-primary py-3 text-white px-5">Reserve Now</a>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="section bg-image overlay" style="background-image: url('static/images/hero_4.jpg');">-->
+<!--    <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--            <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">-->
+<!--                <h2 class="text-white font-weight-bold">A Best Place To Stay. Reserve Now!</h2>-->
+<!--            </div>-->
+<!--            <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">-->
+<!--                <a href="reservation.html" class="btn btn-outline-white-primary py-3 text-white px-5">Reserve Now</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <footer class="section footer-section">
     <div class="container">
