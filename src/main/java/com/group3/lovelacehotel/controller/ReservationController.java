@@ -6,12 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import java.util.List;
 import javax.validation.Valid;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Controller
@@ -42,8 +44,9 @@ public class ReservationController {
 
 
     @GetMapping(value = "/allReservations")
-    public String allReservations(Model map, Reservation reservation) {
-        map.addAttribute("pageName", "AllReservations!");
+    public String allReservations(Model model, Reservation reservation) {
+        model.addAttribute("pageName", "AllReservations!");
+        model.addAttribute("reservations", reservationService.getAll());
         return "allReservations";
     }
 
@@ -59,20 +62,29 @@ public class ReservationController {
         model.addAttribute("pageName", "Edit New Reservation");
 
         Reservation reservation = reservationService.getById(id);
+        System.out.println("reservation = " + reservation);
+
         model.addAttribute("reservation", reservation);
 
-        return "reservation-edit";
+        return "edit-reservation";
     }
 
-//
-//    @PostMapping("/update/{id}")
-//    public String updateReservation(@PathVariable("id") Long id, @Valid Reservation reservation, BindingResult result, Model model) {
-//        if (result.hasErrors()) {
-//            return "reservation-edit";
-//        }
-//
-//        reservationService.updateReservation(id, reservation);
-//
-//        return index(model);
-//    }
+
+    @PostMapping("/update/{id}")
+    public String updateReservation(@PathVariable("id") Long id, @Valid Reservation reservation, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            //this just describes errors
+            List<FieldError> errors = result.getFieldErrors();
+            for (FieldError error : errors ) {
+                System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
+            }
+            System.out.println("errorcheck reservation = " + reservation);
+            System.out.println("errorcheck model = " + model);
+            return "edit-reservation";
+        }
+
+        reservationService.updateReservation(id, reservation);
+
+        return "allReservations";
+    }
 }
