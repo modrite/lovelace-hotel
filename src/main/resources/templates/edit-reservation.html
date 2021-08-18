@@ -126,20 +126,18 @@
                     <input type="hidden" name="userId" th:value="${reservation.roomId}"/>
 
                 </div>
-<!--
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label for="adults" class="font-weight-bold text-black">Adults</label>
-                        <input type="text" id="adults" class="form-control" required
-                               th:value="${numberOfAdults}" name="numberOfAdults"/>
-                    </div>
+                    <label class="text-black font-weight-bold" for="numberOfAdults">Adults</label>
+                    <input type="text" id="numberOfAdults" name="numberOfAdults" class="form-control " required
+                           th:value="${reservation.numberOfAdults}"/>
+                </div>
                     <div class="col-md-6 form-group">
-                        <label for="children" class="font-weight-bold text-black">Children</label>
-                        <input type="text" id="children" class="form-control" required
-                               th:value="${numberOfChildren}" name="numberOfChildren"/>
+                        <label class="font-weight-bold text-black" for="numberOfChildren">Children</label>
+                        <input type="text" name="numberOfChildren" id="numberOfChildren" class="form-control" required
+                               th:value="${reservation.numberOfChildren}"/>
                     </div>
                 </div>
-                -->
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <label class="text-black font-weight-bold" for="type">Type</label>
