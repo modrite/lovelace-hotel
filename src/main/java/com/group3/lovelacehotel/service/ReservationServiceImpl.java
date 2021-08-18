@@ -36,7 +36,6 @@ public class ReservationServiceImpl implements ReservationService {
         Example<Reservation> reservationExample = Example.of(reservation, matchingAll().withIgnoreNullValues());
 
         return reservationRepository.findAll(reservationExample);
-
     }
 
 
@@ -82,14 +81,20 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation existingReservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Invalid reservation id " + id));
 
+        Room room = roomRepository.getById(updatedReservation.getRoomId());
+
         existingReservation.setType(updatedReservation.getType());
         existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
         existingReservation.setCheckOutDate(updatedReservation.getCheckOutDate());
         existingReservation.setStayNights(updatedReservation.getStayNights());
-//        existingReservation.setTotalPrice(updatedReservation.getTotalPrice());
+
+        existingReservation.setCustomerEmail(updatedReservation.getCustomerEmail());
+        existingReservation.setCustomerName(updatedReservation.getCustomerName());
+        existingReservation.setCustomerSurname(updatedReservation.getCustomerSurname());
+        existingReservation.setCustomerPhoneNumber(updatedReservation.getCustomerPhoneNumber());
+
         existingReservation.setPrice(updatedReservation.getPrice());
-//        existingReservation.setUser(updatedReservation.getUser());
-        existingReservation.setRoom(updatedReservation.getRoom());
+        existingReservation.setRoom(room);
 
 
         return reservationRepository.save(existingReservation);

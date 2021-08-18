@@ -122,8 +122,8 @@
                         <input type="text" name="checkOutDate" id="checkout_date" class="form-control" required
                                th:value="${#temporals.format(reservation.checkOutDate,'dd-MM-yyyy')}"/>
                     </div>
-                    <input type="hidden" name="roomId" th:value="${reservation.stayNights}"/>
-                    <input type="hidden" name="userId" th:value="${reservation.roomId}"/>
+                    <input type="hidden" name="roomId" th:value="${reservation.userId}"/>
+                    <input type="hidden" name="userId" th:value="${reservation.room.id}"/>
 
                 </div>
                 <div class="row">
