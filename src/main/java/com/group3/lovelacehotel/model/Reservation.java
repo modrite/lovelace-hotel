@@ -25,6 +25,8 @@ public class Reservation {
     private String customerSurname;
     private String customerEmail;
     private String customerPhoneNumber;
+    private String numberOfAdults;
+    private String numberOfChildren;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
