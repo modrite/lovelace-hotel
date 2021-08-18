@@ -1,10 +1,12 @@
 package com.group3.lovelacehotel.service;
 
-import com.group3.lovelacehotel.model.*;
+import com.group3.lovelacehotel.model.Role;
+import com.group3.lovelacehotel.model.User;
 import com.group3.lovelacehotel.model.dto.AdminRegistrationDto;
 import com.group3.lovelacehotel.model.dto.UserRegistrationDto;
+import com.group3.lovelacehotel.repository.RoleRepository;
 import com.group3.lovelacehotel.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,40 +14,45 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @Service
-public class UserServiceImpl implements UserService,AdminService {
+public class UserServiceImpl implements UserService, AdminService {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
 
     @Override
     public User save(UserRegistrationDto registrationDto) {
+        Role role = roleRepository.findFirstByNameIgnoreCase("ROLE_CUSTOMER")
+                .orElseGet(() -> new Role("ROLE_CUSTOMER"));
+
         User user = new User(
-            registrationDto.getName(),
-            registrationDto.getSurname(),
-            registrationDto.getPhoneNumber(),
-            registrationDto.getEmail(),
-            passwordEncoder.encode(registrationDto.getPassword()),
-            Arrays.asList(new Role("ROLE_CUSTOMER")));
+                registrationDto.getName(),
+                registrationDto.getSurname(),
+                registrationDto.getPhoneNumber(),
+                registrationDto.getEmail(),
+                passwordEncoder.encode(registrationDto.getPassword()),
+                List.of(role));
         return userRepository.save(user);
     }
 
     @Override
     public User save(AdminRegistrationDto adminRegistrationDto) {
+        Role role = roleRepository.findFirstByNameIgnoreCase("ROLE_ADMIN")
+                .orElseGet(() -> new Role("ROLE_ADMIN"));
+
         User user = new User(
                 adminRegistrationDto.getName(),
                 adminRegistrationDto.getSurname(),
                 adminRegistrationDto.getPhoneNumber(),
                 adminRegistrationDto.getEmail(),
                 passwordEncoder.encode(adminRegistrationDto.getPassword()),
-                Arrays.asList(new Role("ROLE_ADMIN")));
+                List.of(role));
         return userRepository.save(user);
     }
 
@@ -59,11 +66,11 @@ public class UserServiceImpl implements UserService,AdminService {
                 mapRolesToAuthorities(user.getRoles()));
     }
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
-    public User findByEmail(String email){
+    public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 

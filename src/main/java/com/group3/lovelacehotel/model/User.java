@@ -48,6 +48,15 @@ public class User {
 
     private Collection<Role> roles;
 
+    //assuming that a user will only have 1 role
+
+    public String getRole() {
+        return this.roles.stream()
+                .findFirst()
+                .map(Role::getName)
+                .orElse("");
+    }
+
 
     public User(String name, String surname, String phoneNumber, String email, String password, Collection<Role> roles) {
         this.name = name;

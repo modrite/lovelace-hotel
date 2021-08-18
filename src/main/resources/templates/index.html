@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,20 +45,19 @@
                         <div class="container">
                             <div class="row full-height align-items-center">
                                 <div class="col-md-6 mx-auto">
-                                        <ul class="list-unstyled menu">
-                                            <li class="active"><a th:href="@{/}">Home</a></li>
-                                            <li><a th:href="@{/about}">About</a></li>
-                                            <li><a th:href="@{/roomsHotel}">Rooms</a></li>
-                                            <li><a th:href="@{/events}">Events</a></li>
-                                            <li><a th:href="@{/contact}">Contact</a></li>
-                                            <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
-                                            <li><a th:href="@{/login}">Log in</a></li>
-                                            <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/rooms}" >For Admin</a></li>
-<!--                                            <li type ="hidden" th:object="${user}"><a th:href="@{/rooms}" >For Admin</a></li>-->
-<!--                                            <li type ="hidden" th:object="${user}"><a th:href="@{/rooms}" >For Admin</a></li>-->
-                                            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a>
-                                            </li>
-                                        </ul>
+                                    <ul class="list-unstyled menu">
+                                        <li class="active"><a th:href="@{/}">Home</a></li>
+                                        <li><a th:href="@{/about}">About</a></li>
+                                        <li><a th:href="@{/roomsHotel}">Rooms</a></li>
+                                        <li><a th:href="@{/events}">Events</a></li>
+                                        <li><a th:href="@{/contact}">Contact</a></li>
+                                        <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
+                                        <li th:if="${!isUserLoggedIn}"><a th:href="@{/login}">Log in</a></li>
+                                        <li th:if="${isUserLoggedIn && currentUser.getRole == 'ROLE_ADMIN'}"><a
+                                                th:href="@{/rooms}">For Admin</a></li>
+                                        <li th:if="${isUserLoggedIn}"><a th:href="@{/logout}">Logout</a></li>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
