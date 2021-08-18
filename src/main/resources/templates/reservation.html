@@ -157,11 +157,11 @@
         </div>
     </div>
 </section>
-<section class="section" th:each="room : ${rooms}">
+<section class="section" >
     <div class="container">
         <div class="row" >
-            <div class="col-md-6 col-lg-4 " data-aos="fade-up"
-                 th:if="${room.type == 'single'}">
+            <div class="col-md-3 col-lg-3" data-aos="fade-up"
+                 th:if="${room.type == 'single'}" th:each="room : ${rooms}">
                 <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren},roomPrice=${room.price})}"
                    class="room">
                     <figure class="img-wrap">
@@ -175,8 +175,8 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-                 th:if="${room.type == 'family'}">
+            <div class="col-md-3 col-lg-3" data-aos="fade-up"
+                 th:if="${room.type == 'family'}" th:each="room : ${rooms}">
                 <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren},roomPrice=${room.price})}"
                    class="room">
                     <figure class="img-wrap">
@@ -190,8 +190,8 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-                 th:if="${room.type == 'luxury'}">
+            <div class="col-md-3 col-lg-3" data-aos="fade-up"
+                 th:if="${room.type == 'luxury'}" th:each="room : ${rooms}">
                 <a th:href="@{/rooms/reservation-confirmation(roomId=${room.id},startDate=${#temporals.format(search.checkInDate, 'dd-MM-yyyy')},endDate=${#temporals.format(search.checkOutDate, 'dd-MM-yyyy')},adults=${search.numberOfAdults},children=${search.numberOfChildren},roomPrice=${room.price})}"
                    class="room">
                     <figure class="img-wrap">
