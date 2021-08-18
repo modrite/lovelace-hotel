@@ -17,6 +17,7 @@
                     <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Surname</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Check-in date</th>
@@ -30,6 +31,7 @@
                     <tbody>
                     <tr th:each="reservation : ${reservations}">
                         <td th:text="${reservation.customerName}"></td>
+                        <td th:text="${reservation.customerSurname}"></td>
                         <td th:text="${reservation.customerPhoneNumber}"></td>
                         <td th:text="${reservation.customerEmail}"></td>
                         <td th:text="${reservation.checkInDate}"></td>

@@ -82,11 +82,14 @@ public class ReservationServiceImpl implements ReservationService {
                 .orElseThrow(() -> new BadRequestException("Invalid reservation id " + id));
 
         Room room = roomRepository.getById(updatedReservation.getRoomId());
+        Long numberOfNights = updatedReservation.getCheckInDate().until(updatedReservation.getCheckOutDate(), ChronoUnit.DAYS);
 
         existingReservation.setType(updatedReservation.getType());
         existingReservation.setCheckInDate(updatedReservation.getCheckInDate());
         existingReservation.setCheckOutDate(updatedReservation.getCheckOutDate());
-        existingReservation.setStayNights(updatedReservation.getStayNights());
+        existingReservation.setStayNights(numberOfNights);
+        existingReservation.setNumberOfAdults(updatedReservation.getNumberOfAdults());
+        existingReservation.setNumberOfChildren(updatedReservation.getNumberOfChildren());
 
         existingReservation.setCustomerEmail(updatedReservation.getCustomerEmail());
         existingReservation.setCustomerName(updatedReservation.getCustomerName());
