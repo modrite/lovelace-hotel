@@ -48,13 +48,14 @@
                                 <div class="col-md-6 mx-auto">
                                     <ul class="list-unstyled menu">
                                         <li class="active"><a th:href="@{/}">Home</a></li>
-                                        <li><a th:href="@{/about}">About</a></li>
-                                        <li><a th:href="@{/roomsHotel}">Rooms</a></li>
-                                        <li><a th:href="@{/events}">Events</a></li>
-                                        <li><a th:href="@{/contact}">Contact</a></li>
+                                        <li><a th:href="@{/about}">About Us</a></li>
                                         <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
-                                        <li><a th:href="@{/login}">Log in</a></li>
-                                        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+                                        <li><a th:href="@{/roomsHotel}">Rooms</a></li>
+                                        <li><a th:href="@{/contact}">Contact</a></li>
+                                        <li th:if="${!isUserLoggedIn}"><a th:href="@{/login}">Log in/ Register</a></li>
+                                        <li th:if="${isUserLoggedIn}"><a th:href="@{/logout}">Logout</a></li>
+                                        <li th:if="${isUserLoggedIn && currentUser.getRole == 'ROLE_ADMIN'}"><a
+                                                th:href="@{/rooms}">For Admin</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -207,6 +208,46 @@
         </div>
     </div>
 </section>
+<footer class="section footer-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-3 mb-5">
+                <ul class="list-unstyled link">
+                    <li><a th:href="@{/about}">About Us</a></li>
+                    <li><a th:href="@{/}">Our Project</a></li>
+                    <li><a th:href="@{/contact}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-5">
+                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Laura:</span>
+                    <span> (+371) 22 049 972</span></p>
+                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Modrīte:</span>
+                    <span> (+371) 28 266 172</span></p>
+                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Anete:</span>
+                    <span> (+47) 40 524 160</span></p>
+
+            </div>
+            <div class="col-md-3 mb-5">
+                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> laura.maisele@gmail.com </span>
+                </p>
+                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> modrite.laurane@gmail.com </span>
+                </p>
+                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> anete777@gmail.com </span>
+                </p>
+            </div>
+            <div class="col-md-3 mb-5 pr-md-5 contact-info">
+
+                <p><span class="d-block"><span class="ion-ios-location h5 mr-3 text-primary"></span>Address:</span>
+                    <span> Neverland, <br> Paradise Street 1</span></p>
+
+            </div>
+        </div>
+        <p class="mt-5 text-center">
+            This project is coded by Laura, Modrīte and Anete and is <a href="https://github.com/modrite/lovelace-hotel" target="_blank"> open-sourced </a>
+        </p>
+    </div>
+</footer>
+
 
 <!-- END section -->
 
