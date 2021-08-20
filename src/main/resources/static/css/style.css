@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5 {
 .emailAd, .pass, .loginBtn, .nam, .surnam, .phon, .room2, .subBtn{
     font-size: 1.4rem;
 }
-.emailAddress, .passw, .customer, .loginBtn, .admin, .room1, .subBtn{
+.emailAddress, .passw, .customer, .loginBtn, .admin, .room1, .subBtn, .whit{
     color: #fff;
 }
 .env, .lok {
