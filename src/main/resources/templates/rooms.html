@@ -78,74 +78,107 @@
 
 <section class="site-hero overlay" th:style="'background-image:url('+ @{/images/hero_4.jpg} +');'"
          data-stellar-background-ratio="0.5">
-
-    <br>
-    <br>
-
     <div class="container">
-        <div class="row  mt-5">
-            <div class="col-md-6 col-md-offset-3">
-
-                <h1 th:text="${pageName}"></h1>
-
-                <div th:switch="${rooms}" class="container my-10">
-                    <h2 th:case="null"><p style="color:white">No rooms yet!</p></h2>
-                    <div th:case="*">
-                        <h2 class="my-10"><p style="color:white">Rooms</p></h2>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <p class="my-10"><a href="/rooms/add-room"
-                                                    class="btn btn-success a-btn-slide-text subBtn">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    <span><strong>Add</strong></span>
-                                </a>
-
-                                </p>
-                                <table class="table table-striped table-responsive-md">
-                                    <thead>
-                                    <tr>
-                                        <th class="room1">Type</th>
-                                        <th class="room1">Price/night</th>
-                                        <th class="room1"> Max adults</th>
-                                        <th class="room1">Max children</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr th:each="room : ${rooms}">
-                                        <td th:text="${room.type}" class="room1"></td>
-                                        <td th:text="${room.price}" class="room1"></td>
-                                        <td th:text="${room.numberOfAdults}" class="room1"></td>
-                                        <td th:text="${room.numberOfChildren}" class="room1"></td>
-                                        <td><a th:href="@{/rooms/edit/{id}(id=${room.id})}"
-                                               class="btn btn-primary a-btn-slide-text subBtn">
-                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                            <span><strong>Edit</strong></span></a></td>
-                                        <td><a th:href="@{/rooms/delete/{id}(id=${room.id})}"
-                                               class="btn btn-danger a-btn-slide-text subBtn">
-                                            <span class="glyphicon glyphicon-remove " aria-hidden="true"></span>
-                                            <span><strong>Delete</strong></span> </a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div class="form-group">
-						<span class="user admin">New admin? <a href="/" th:href="@{/admin-registration}">Register
-								here</a></span>
-
-                </div>
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade">
+                <h1 class="heading mb-3">Admin Page</h1>
+                <ul class="custom-breadcrumbs mb-4">
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li>&bullet;</li>
+                    <li>Admin Page</li>
+                </ul>
             </div>
         </div>
     </div>
 
+    <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+            <span class="mouse-wheel"></span>
+        </div>
+    </a>
 </section>
+<section class="bg-light">
+    <div class="container d-flex justify-content-center">
+        <div class="row mt-3 ">
+            <div class="col-4">
+                <p class="my-10"><a href="/rooms/add-room"
+                                    class="btn btn-success a-btn-slide-text subBtn">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span><strong>Add Room</strong></span>
+                </a>
+                </p>
+            </div>
+            <div class="col-4">
+                <p class="my-10"><a th:href="@{/admin-registration}"
+                                    class="btn btn-success a-btn-slide-text subBtn">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span><strong>Add Admin</strong></span>
+                </a>
+                </p>
+            </div>
+            <div class="col-4">
+                <p class="my-10"><a th:href="@{/allReservations}"
+                                    class="btn btn-success a-btn-slide-text subBtn">
+                    <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
+                    <span><strong>All Reservations</strong></span>
+                </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-dark">
+    <div class="container">
+        <div class="row  mt-3">
+            <div class="col-md-6 col-md-offset-3">
+                <div th:switch="${rooms}" class="container my-10">
+                    <h2 th:case="null"><p style="color:white">No rooms yet!</p></h2>
+                    <div th:case="*">
+                        <h2 class="my-10"><p style="color:white">Rooms</p></h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                <tr>
+                                    <th class="room1">Type</th>
+                                    <th class="room1">Price/night</th>
+                                    <th class="room1"> Max adults</th>
+                                    <th class="room1">Max children</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="room : ${rooms}">
+                                    <td th:text="${room.type}" class="room1"></td>
+                                    <td th:text="${room.price}" class="room1"></td>
+                                    <td th:text="${room.numberOfAdults}" class="room1"></td>
+                                    <td th:text="${room.numberOfChildren}" class="room1"></td>
+                                    <td><a th:href="@{/rooms/edit/{id}(id=${room.id})}"
+                                           class="btn btn-primary a-btn-slide-text subBtn">
+                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                        <span><strong>Edit</strong></span></a></td>
+                                    <td><a th:href="@{/rooms/delete/{id}(id=${room.id})}"
+                                           class="btn btn-danger a-btn-slide-text subBtn">
+                                        <span class="glyphicon glyphicon-remove " aria-hidden="true"></span>
+                                        <span><strong>Delete</strong></span> </a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</section>
+
 <!-- END section -->
 
 
