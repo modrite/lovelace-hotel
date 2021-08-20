@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.util.List;
+
 import javax.validation.Valid;
-import java.util.Set;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -24,7 +24,7 @@ public class ReservationController {
 
     @GetMapping
     public String landingReservationPage() {
-        return "redirect:reservations/allReservations";
+        return "redirect:/reservations/allReservations";
     }
 
     @GetMapping("/new-reservation")
@@ -54,7 +54,7 @@ public class ReservationController {
     @GetMapping("/delete/{id}")
     public String deleteById(@PathVariable("id") Long id, Model model) {
         reservationService.delete(id);
-        return "redirect:reservations/allReservations";
+        return "redirect:/reservations/allReservations";
     }
 
     @GetMapping("/edit/{id}")
@@ -85,6 +85,6 @@ public class ReservationController {
 
         reservationService.updateReservation(id, reservation);
 
-        return "allReservations";
+        return "redirect:/reservations/allReservations";
     }
 }

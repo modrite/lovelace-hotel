@@ -40,9 +40,9 @@
                             <td th:text="${reservation.checkOutDate}"></td>
                             <td th:text="${reservation.numberOfAdults}"></td>
                             <td th:text="${reservation.numberOfChildren}"></td>
-                            <td><a th:href="@{/allReservations/edit/{id}(id=${reservation.id})}"
+                            <td><a th:href="@{/reservations/edit/{id}(id=${reservation.id})}"
                                    class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
-                            <td><a th:href="@{/allReservations/delete/{id}(id=${reservation.id})}"
+                            <td><a th:href="@{/reservations/delete/{id}(id=${reservation.id})}"
                                    class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a></td>
                         </tr>
                         </tbody>
