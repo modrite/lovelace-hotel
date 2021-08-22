@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="ISO-8859-1">
     <title>Rooms</title>
-
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.min.css">
-    <script src="/webjars/bootstrap/5.0.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link rel="stylesheet" type="text/css"
           href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
     <link rel="stylesheet" th:href="@{~/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{~/css/animate.css}">
     <link rel="stylesheet" th:href="@{~/css/owl.carousel.min.css}">
@@ -24,13 +19,9 @@
     <link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker.css}">
     <link rel="stylesheet" th:href="@{~/css/jquery.timepicker.css}">
     <link rel="stylesheet" th:href="@{~/css/fancybox.min.css}">
-
     <link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min.css}">
     <link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min.css}">
-
-    <!-- Theme Style -->
     <link rel="stylesheet" th:href="@{~/css/style.css}">
-
 </head>
 <body>
 
@@ -45,7 +36,6 @@
                     <span></span>
                     <span></span>
                 </div>
-                <!-- END menu-toggle -->
 
                 <div class="site-navbar js-site-navbar">
                     <nav role="navigation">
@@ -57,7 +47,7 @@
                                         <li><a th:href="@{/about}">About Us</a></li>
                                         <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                                         <li><a th:href="@{/roomsHotel}">Rooms</a></li>
-                                        <li><a th:href="@{/contact}">Contact</a></li>
+                                        <li><a th:href="@{/contact}">Contact Us</a></li>
                                         <li th:if="${!isUserLoggedIn}"><a th:href="@{/login}">Log in/ Register</a></li>
                                         <li th:if="${isUserLoggedIn}"><a th:href="@{/logout}">Logout</a></li>
                                         <li th:if="${isUserLoggedIn && currentUser.getRole == 'ROLE_ADMIN'}"><a
@@ -193,6 +183,9 @@
 <script th:src="@{~/js/bootstrap-datepicker.js}"></script>
 <script th:src="@{~/js/jquery.timepicker.min.js}"></script>
 <script th:src="@{~/js/main.js}"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/webjars/bootstrap/5.0.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

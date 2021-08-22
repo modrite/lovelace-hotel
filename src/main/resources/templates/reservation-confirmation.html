@@ -1,5 +1,5 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,7 +48,7 @@
                                         <li><a th:href="@{/about}">About Us</a></li>
                                         <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                                         <li><a th:href="@{/roomsHotel}">Rooms</a></li>
-                                        <li><a th:href="@{/contact}">Contact</a></li>
+                                        <li><a th:href="@{/contact}">Contact Us</a></li>
                                         <li th:if="${!isUserLoggedIn}"><a th:href="@{/login}">Log in/ Register</a></li>
                                         <li th:if="${isUserLoggedIn}"><a th:href="@{/logout}">Logout</a></li>
                                         <li th:if="${isUserLoggedIn && currentUser.getRole == 'ROLE_ADMIN'}"><a
@@ -200,24 +200,15 @@
                 <ul class="list-unstyled link">
                     <li><a th:href="@{/about}">About Us</a></li>
                     <li><a th:href="@{/}">Our Project</a></li>
-                    <li><a th:href="@{/contact}">Contact</a></li>
+                    <li><a th:href="@{/contact}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="col-md-3 mb-5">
-                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Laura:</span>
-                    <span> (+371) 22 049 972</span></p>
-                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Modrīte:</span>
-                    <span> (+371) 28 266 172</span></p>
-                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Anete:</span>
-                    <span> (+47) 40 524 160</span></p>
-
+                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Phone:</span>
+                    <span> (+371) 12 345 678</span></p>
             </div>
             <div class="col-md-3 mb-5">
-                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> lauamaisele@hotmail.lv </span>
-                </p>
-                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> modrite.laurane@gmail.com </span>
-                </p>
-                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> anete777@gmail.com </span>
+                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> info@lovelace.love </span>
                 </p>
             </div>
             <div class="col-md-3 mb-5 pr-md-5 contact-info">

@@ -1,15 +1,14 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta name="author" content=""/>
+
     <link rel="stylesheet" type="text/css"
           href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
-
     <link rel="stylesheet" th:href="@{~/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{~/css/animate.css}">
     <link rel="stylesheet" th:href="@{~/css/owl.carousel.min.css}">
@@ -17,11 +16,8 @@
     <link rel="stylesheet" th:href="@{~/css/bootstrap-datepicker.css}">
     <link rel="stylesheet" th:href="@{~/css/jquery.timepicker.css}">
     <link rel="stylesheet" th:href="@{~/css/fancybox.min.css}">
-
     <link rel="stylesheet" th:href="@{~/fonts/ionicons/css/ionicons.min.css}">
     <link rel="stylesheet" th:href="@{~/fonts/fontawesome/css/font-awesome.min.css}">
-
-    <!-- Theme Style -->
     <link rel="stylesheet" th:href="@{~/css/style.css}">
 </head>
 <body>
@@ -31,15 +27,11 @@
         <div class="row align-items-center">
             <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a th:href="@{/}">Lovelace Hotel</a></div>
             <div class="col-6 col-lg-8">
-
-
                 <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <!-- END menu-toggle -->
-
                 <div class="site-navbar js-site-navbar">
                     <nav role="navigation">
                         <div class="container">
@@ -50,7 +42,7 @@
                                         <li><a th:href="@{/about}">About Us</a></li>
                                         <li><a th:href="@{/rooms/reservation}">Book Now</a></li>
                                         <li><a th:href="@{/roomsHotel}">Rooms</a></li>
-                                        <li><a th:href="@{/contact}">Contact</a></li>
+                                        <li><a th:href="@{/contact}">Contact Us</a></li>
                                         <li th:if="${!isUserLoggedIn}"><a th:href="@{/login}">Log in/ Register</a></li>
                                         <li th:if="${isUserLoggedIn}"><a th:href="@{/logout}">Logout</a></li>
                                         <li th:if="${isUserLoggedIn && currentUser.getRole == 'ROLE_ADMIN'}"><a
@@ -87,7 +79,6 @@
         </div>
     </a>
 </section>
-<!-- END section -->
 
 <section class="py-5 bg-light" id="next">
     <div class="container">
@@ -106,10 +97,10 @@
                         href="https://www.youtube.com/watch?v=6stlCkUDG_s&list=PL4Gr5tOAPttLOY9IrWVjJlv4CtkYI5cI_&index=1" data-fancybox
                         class="text-uppercase letter-spacing-1">Enjoy video</a></p>
             </div>
-
         </div>
     </div>
 </section>
+<!-- END section -->
 
 <div class="container section">
 
@@ -208,7 +199,6 @@
 </div>
 <!-- END .block-2 -->
 
-
 <div class="section">
     <div class="container">
 
@@ -217,7 +207,6 @@
                 <h2 class="heading" data-aos="fade">Inspiration</h2>
             </div>
         </div>
-
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="timeline-item"  data-aos="fade">
@@ -225,13 +214,10 @@
                     <p>We were inspired by English mathematician and writer Ada Lovelace. She is known as the first computer programmer.</p>
                     <p>Even though she wrote about a computer, the Analytical Engine, that was never built, she realized that the computer could follow a series of simple instructions, a program, to perform a complex calculation.</p>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
-
 
 <footer class="section footer-section">
     <div class="container">
@@ -240,38 +226,28 @@
                 <ul class="list-unstyled link">
                     <li><a th:href="@{/about}">About Us</a></li>
                     <li><a th:href="@{/}">Our Project</a></li>
-                    <li><a th:href="@{/contact}">Contact</a></li>
+                    <li><a th:href="@{/contact}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="col-md-3 mb-5">
-                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Laura:</span>
-                    <span> (+371) 22 049 972</span></p>
-                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Modrīte:</span>
-                    <span> (+371) 28 266 172</span></p>
-                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Anete:</span>
-                    <span> (+47) 40 524 160</span></p>
-
+                <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span> Phone:</span>
+                    <span> (+371) 12 345 678</span></p>
             </div>
             <div class="col-md-3 mb-5">
-                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> lauramaisele@hotmail.lv </span>
-                </p>
-                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> modrite.laurane@gmail.com </span>
-                </p>
-                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> anete777@gmail.com </span>
+                <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> info@lovelace.love </span>
                 </p>
             </div>
-            <div class="col-md-3 mb-5 pr-md-5 contact-info">
-
+            <div class="col-md-3 mb-5">
                 <p><span class="d-block"><span class="ion-ios-location h5 mr-3 text-primary"></span>Address:</span>
                     <span> Neverland, <br> Paradise Street 1</span></p>
-
             </div>
         </div>
-            <p class="mt-5 text-center">
-                This project is coded by Laura, Modrīte and Anete and is <a href="https://github.com/modrite/lovelace-hotel" target="_blank"> open-sourced </a>
-            </p>
+        <p class="mt-5 text-center">
+            This project is coded by Laura, Modrīte and Anete and is <a href="https://github.com/modrite/lovelace-hotel" target="_blank"> open-sourced </a>
+        </p>
     </div>
 </footer>
+<!-- END footer -->
 
 <script th:src="@{~/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{~/js/jquery-migrate-3.0.1.min.js}"></script>
