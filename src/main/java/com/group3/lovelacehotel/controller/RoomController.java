@@ -124,6 +124,7 @@ public class RoomController {
                                       @RequestParam("children") Integer children,
                                       @RequestParam("roomId") Long roomId,
                                       @RequestParam("roomPrice") Double roomPrice,
+                                      @RequestParam("roomType") String type,
                                       Model model,
                                       Reservation reservation){
         model.addAttribute("roomId",roomId);
@@ -132,6 +133,7 @@ public class RoomController {
         model.addAttribute("numberOfAdults",adults);
         model.addAttribute("numberOfChildren",children);
         model.addAttribute("reservation", reservation);
+        model.addAttribute("roomType", type);
 
         if(roomPrice != null && startDate != null && endDate != null){
             Long numberOfNights = startDate.until(endDate, ChronoUnit.DAYS);
