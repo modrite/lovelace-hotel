@@ -123,12 +123,12 @@
 
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label class="text-black font-weight-bold" for="checkin_date" readonly>Date Check In</label>
+                            <label class="text-black font-weight-bold" for="checkin_date" >Date Check In</label>
                             <input type="text" name="checkInDate" id="checkin_date" class="form-control" required
-                                   th:value="${#temporals.format(checkInDate,'dd-MM-yyyy')}" readonly/>
+                                   th:value="${#temporals.format(checkInDate,'dd-MM-yyyy')} " readonly/>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label class="text-black font-weight-bold" for="checkout_date" readonly>Date Check Out</label>
+                            <label class="text-black font-weight-bold" for="checkout_date" >Date Check Out</label>
                             <input type="text" name="checkOutDate" id="checkout_date" class="form-control" required
                                    th:value="${#temporals.format(checkOutDate,'dd-MM-yyyy')}" readonly/>
                         </div>

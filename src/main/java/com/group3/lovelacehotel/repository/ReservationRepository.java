@@ -8,10 +8,14 @@ import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+
+    List<Reservation> findAllByOrderByIdDesc();
+
     Optional<Reservation> findById(Long id);
 
     @Query("Select r.room from Reservation  r where r.checkOutDate >:date")
