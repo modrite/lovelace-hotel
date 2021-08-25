@@ -140,7 +140,7 @@ public class RoomController {
             Double priceToPay = roomPrice*numberOfNights;
             model.addAttribute("price", priceToPay);
         }
-        else{//probably would error before it got to this
+        else{
         }
 
         return "reservation-confirmation";
