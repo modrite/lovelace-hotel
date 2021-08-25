@@ -18,11 +18,8 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Boolean ifBooked;
 
-//    @OneToOne
-//    @JoinColumn(name = "customer_id")
-//    private User user;
+    private Boolean ifBooked;
 
     private String type;
 

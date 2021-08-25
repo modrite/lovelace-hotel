@@ -25,7 +25,4 @@ public class CheckOut {
 
     private LocalDateTime checkOutDate;
 
-//    @Column (name = "fine_amount")
-//    private Double fineAmount;
-
 }

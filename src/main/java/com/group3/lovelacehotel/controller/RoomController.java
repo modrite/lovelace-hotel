@@ -149,15 +149,12 @@ public class RoomController {
     @PostMapping ("/reservation-confirmation")
     public String saveNewReservation(@Valid Reservation reservation, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            ////////////////this just describes errors
             List<FieldError> errors = result.getFieldErrors();
             for (FieldError error : errors ) {
                 System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
             }
             System.out.println("errorcheck reservation = " + reservation);
             System.out.println("errorcheck model = " + model);
-            /////////////////////////////////////////////////////////////////////////
-            // return "reservation";
             return "reservation-confirmation";
 
         }

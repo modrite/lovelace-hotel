@@ -22,6 +22,7 @@ public class ReservationSearch {
     private Long numberOfChildren;
 
     private LocalDateTime checkInDate;
+
     private LocalDateTime expectedCheckOutDate;
 
 }

@@ -48,7 +48,6 @@ public class User {
 
     private Collection<Role> roles;
 
-    //assuming that a user will only have 1 role
 
     public String getRole() {
         return this.roles.stream()
