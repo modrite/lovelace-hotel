@@ -73,7 +73,7 @@ public class ReservationController {
     @PostMapping("/update/{id}")
     public String updateReservation(@PathVariable("id") Long id, @Valid Reservation reservation, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            //this just describes errors
+
             List<FieldError> errors = result.getFieldErrors();
             for (FieldError error : errors ) {
                 System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
